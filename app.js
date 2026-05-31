@@ -86,6 +86,12 @@
     });
   }
 
+  function updateTimelineRelated(relatedId) {
+    timelineButtons.forEach(function (button) {
+      button.classList.toggle("timeline-related", button.getAttribute("data-experience-target") === relatedId);
+    });
+  }
+
   function openExperienceFromTimeline(targetId) {
     var target = document.getElementById(targetId);
     if (!target) return;
@@ -95,6 +101,7 @@
     });
 
     updateTimelineActive(targetId);
+    updateTimelineRelated("");
     target.scrollIntoView({ behavior: "smooth", block: "center" });
 
     var summary = target.querySelector("summary");
@@ -298,6 +305,24 @@
   });
 
   experienceItems.forEach(function (item) {
+    item.addEventListener("mouseenter", function () {
+      updateTimelineRelated(item.id);
+    });
+
+    item.addEventListener("mouseleave", function () {
+      updateTimelineRelated("");
+    });
+
+    item.addEventListener("focusin", function () {
+      updateTimelineRelated(item.id);
+    });
+
+    item.addEventListener("focusout", function (event) {
+      if (!item.contains(event.relatedTarget)) {
+        updateTimelineRelated("");
+      }
+    });
+
     item.addEventListener("toggle", function () {
       if (item.open) {
         updateTimelineActive(item.id);
