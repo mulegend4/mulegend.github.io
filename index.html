@@ -9,7 +9,7 @@
     />
     <title>Arslan Malek - Power Platform Architect</title>
     <link rel="preload" as="image" href="assets/home-headshot-relaxed.jpg" />
-    <link rel="stylesheet" href="styles.css?v=20260531-1" />
+    <link rel="stylesheet" href="styles.css?v=20260531-2" />
   </head>
   <body>
     <header class="site-header" aria-label="Primary">
@@ -164,7 +164,7 @@
             </div>
           </article>
 
-          <article class="project-card reveal" data-skills="copilot-studio power-automate governance-alm">
+          <article class="project-card reveal" data-project="copilot-intake" data-skills="copilot-studio power-automate governance-alm" tabindex="0" role="button" aria-label="Open Copilot Studio Intake Agent project details">
             <div class="project-visual project-visual-image">
               <img class="project-shot" src="assets/projects/copilot-studio-intake-realistic.png" alt="Realistic Copilot Studio intake agent builder visual" />
             </div>
@@ -179,7 +179,7 @@
               <p>
                 Replaced a manual intake process with an agent that asks targeted business-analysis questions, summarizes requests, and gives the delivery team clearer next steps.
               </p>
-              <p class="project-note">Add next: request volume, saved time, escalation rules, and the final summary format.</p>
+              <p class="project-note">Click to view impact estimates, intake autonomy, and the screenshot note.</p>
             </div>
           </article>
 
@@ -479,6 +479,17 @@
           </div>
         </div>
 
+        <div class="modal-section">
+          <h3>Fast silent demo</h3>
+          <p>
+            This sped-up preview condenses the original demo into the key moments: reviewing records, updating employee leave details, saving the request, and checking the reporting dashboard.
+          </p>
+          <figure class="modal-demo">
+            <img class="modal-demo-gif" data-lazy-src="assets/projects/covid-pay-protection/pay-protection-demo-fast.gif" data-reset-on-close width="640" height="294" alt="Fast silent GIF demo of the COVID-19 Pay Protection Tracker Power App" />
+            <figcaption>Auto-playing silent GIF preview, shortened from the full demo video.</figcaption>
+          </figure>
+        </div>
+
         <div class="modal-gallery">
           <article class="modal-shot wide">
             <img src="assets/projects/covid-pay-protection/reporting-screen.png" alt="Reporting screen showing total employees on leave and regional totals" />
@@ -522,6 +533,71 @@
           </ul>
         </div>
         </div>
+
+        <div class="project-modal-content" data-modal-content="copilot-intake" hidden>
+        <div class="modal-hero">
+          <img src="assets/projects/copilot-studio-intake-realistic.png" alt="Realistic Copilot Studio intake agent builder visual" />
+          <div>
+            <p class="modal-kicker">Copilot Studio case study</p>
+            <h2 id="project-modal-title-copilot">Copilot Studio Intake Agent</h2>
+            <p>
+              A guided request intake experience that replaced manual review and a high-maintenance ServiceNow form with a Copilot Studio agent and Power Platform-owned intake flow. The agent collects better context, summarizes the request, and gives the delivery team cleaner next steps before work begins.
+            </p>
+            <div class="modal-chip-row">
+              <span>Copilot Studio</span>
+              <span>Power Apps Intake</span>
+              <span>Power Automate</span>
+              <span>Request Triage</span>
+              <span>ServiceNow Replacement</span>
+              <span>Cost Avoidance</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal-section">
+          <h3>Impact highlights</h3>
+          <div class="modal-highlight-grid">
+            <article>
+              <strong>Reduced manual review</strong>
+              <span>Saved an estimated 2 hours of daily request review. At $110/hour and 260 business days, that is about $57,200 in annual effort avoided.</span>
+            </article>
+            <article>
+              <strong>ServiceNow update cost avoided</strong>
+              <span>Replacing a continuously updated ServiceNow form avoided roughly 40 hours per update at $300/hour, 3 times per year: about $36,000 annually.</span>
+            </article>
+            <article>
+              <strong>Estimated annual value</strong>
+              <span>The two measurable benefits together represent about $93,200 in annualized effort and update cost avoidance.</span>
+            </article>
+            <article>
+              <strong>Team autonomy</strong>
+              <span>The team could update questions, branching logic, and form behavior directly in Power Platform instead of waiting on external ServiceNow configuration work.</span>
+            </article>
+          </div>
+          <div class="modal-callout">
+            <strong>Screenshot reminder</strong>
+            Add the sanitized Intake Power App screenshot here once available, so this case study can show the exact front-end intake experience beside the Copilot agent.
+          </div>
+        </div>
+
+        <div class="modal-section">
+          <h3>What the agent does</h3>
+          <p>
+            The agent asks targeted business-analysis questions, captures the reason for the request, clarifies urgency and impacted users, summarizes the ask, and prepares the delivery team with enough context to triage faster. The Power App intake layer made the front-end request experience easier to customize, while Copilot Studio handled guided conversation, summarization, and routing support.
+          </p>
+        </div>
+
+        <div class="modal-section">
+          <h3>Skills highlighted</h3>
+          <ul class="skill-proof-list">
+            <li><strong>Copilot Studio:</strong> designed the conversational intake flow, request clarification prompts, and summary behavior.</li>
+            <li><strong>Power Apps:</strong> replaced the rigid ServiceNow form with a team-owned intake app that could evolve faster.</li>
+            <li><strong>Power Automate:</strong> supported request routing, notifications, and downstream handoffs.</li>
+            <li><strong>Business analysis:</strong> translated intake review pain points into measurable savings and a cleaner request process.</li>
+            <li><strong>Governance:</strong> kept the intake experience structured, maintainable, and easier to update without vendor dependency.</li>
+          </ul>
+        </div>
+        </div>
       </section>
     </div>
 
@@ -543,8 +619,9 @@
           </svg>
         </a>
       </div>
+      <p class="footer-credit">Developed by Arslan Malek</p>
     </footer>
 
-    <script src="app.js?v=20260531-1"></script>
+    <script src="app.js?v=20260531-2"></script>
   </body>
 </html>

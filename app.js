@@ -96,10 +96,28 @@
     return activeContent;
   }
 
+  function activateProjectMedia(container) {
+    Array.prototype.slice.call(container.querySelectorAll("[data-lazy-src]")).forEach(function (item) {
+      if (!item.getAttribute("src")) {
+        item.setAttribute("src", item.getAttribute("data-lazy-src"));
+      }
+    });
+  }
+
+  function resetProjectMedia() {
+    modalContents.forEach(function (content) {
+      Array.prototype.slice.call(content.querySelectorAll("[data-reset-on-close]")).forEach(function (item) {
+        item.removeAttribute("src");
+      });
+    });
+  }
+
   function openProjectModal(trigger) {
     if (!modal) return;
     var projectKey = trigger.getAttribute("data-project");
-    if (!setProjectModalContent(projectKey)) return;
+    var activeContent = setProjectModalContent(projectKey);
+    if (!activeContent) return;
+    activateProjectMedia(activeContent);
     activeProjectTrigger = trigger;
     modal.hidden = false;
     document.body.classList.add("modal-open");
@@ -113,6 +131,7 @@
     if (!modal) return;
     modal.hidden = true;
     document.body.classList.remove("modal-open");
+    resetProjectMedia();
     if (activeProjectTrigger) {
       activeProjectTrigger.focus();
     }

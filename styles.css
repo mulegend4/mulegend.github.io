@@ -160,8 +160,9 @@ main {
 .hero {
   align-items: center;
   background:
-    radial-gradient(ellipse 42rem 26rem at 50% -18rem, rgb(60 44 90 / 0.22), transparent 76%),
-    linear-gradient(180deg, #050506, #050506 76%, #060607);
+    radial-gradient(ellipse 72rem 42rem at 50% 28%, rgb(78 43 118 / 0.42), transparent 68%),
+    radial-gradient(ellipse 42rem 28rem at 18% 12%, rgb(119 57 102 / 0.22), transparent 72%),
+    linear-gradient(180deg, #050506 0%, #050506 70%, #060607 100%);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -331,25 +332,6 @@ main {
 .projects,
 .experience {
   padding: 0 0 8rem;
-  position: relative;
-  isolation: isolate;
-}
-
-.about::before,
-.skills::before,
-.projects::before,
-.experience::before {
-  background-image:
-    url("data:image/svg+xml,%3Csvg width='96' height='84' viewBox='0 0 96 84' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23ffffff' stroke-opacity='0.055' stroke-width='1'%3E%3Cpath d='M24 1 47 14v27L24 54 1 41V14L24 1Z'/%3E%3Cpath d='M72 1 95 14v27L72 54 49 41V14L72 1Z'/%3E%3Cpath d='M48 30 71 43v27L48 83 25 70V43L48 30Z'/%3E%3C/g%3E%3C/svg%3E"),
-    radial-gradient(circle at 50% 0, rgb(255 255 255 / 0.035), transparent 24rem);
-  background-position: center top, center top;
-  background-size: 96px 84px, 100% 100%;
-  content: "";
-  inset: -2.4rem calc(50% - 50vw) 0;
-  mask-image: linear-gradient(180deg, transparent, rgb(0 0 0 / 0.78) 12%, rgb(0 0 0 / 0.62) 78%, transparent);
-  pointer-events: none;
-  position: absolute;
-  z-index: -1;
 }
 
 .section-kicker {
@@ -959,6 +941,14 @@ main {
   margin-top: 0;
 }
 
+.footer-credit {
+  color: rgb(255 255 255 / 0.48);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  margin: 1.15rem 0 0;
+}
+
 .modal-backdrop {
   align-items: flex-start;
   background: rgb(0 0 0 / 0.72);
@@ -1123,6 +1113,45 @@ main {
   color: var(--muted);
   font-size: 0.9rem;
   line-height: 1.55;
+}
+
+.modal-demo {
+  background: rgb(255 255 255 / 0.055);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  margin: 1rem 0 0;
+  overflow: hidden;
+}
+
+.modal-demo img {
+  background: #050506;
+  display: block;
+  height: auto;
+  min-height: 12rem;
+  object-fit: cover;
+  width: 100%;
+}
+
+.modal-demo figcaption {
+  color: var(--muted);
+  font-size: 0.88rem;
+  line-height: 1.55;
+  padding: 0.8rem 1rem 1rem;
+}
+
+.modal-callout {
+  background: linear-gradient(90deg, rgb(53 208 196 / 0.12), rgb(118 168 255 / 0.1));
+  border: 1px solid rgb(53 208 196 / 0.26);
+  border-radius: 8px;
+  color: rgb(255 255 255 / 0.84);
+  margin-top: 1rem;
+  padding: 1rem;
+}
+
+.modal-callout strong {
+  color: var(--text);
+  display: block;
+  margin-bottom: 0.35rem;
 }
 
 .modal-gallery {
