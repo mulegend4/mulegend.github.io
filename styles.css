@@ -430,17 +430,6 @@ main {
   width: 54px;
 }
 
-.skill-logo-stack {
-  align-items: center;
-  display: flex;
-  gap: 0.7rem;
-  margin-bottom: 1.55rem;
-}
-
-.skill-logo-stack .skill-logo {
-  margin-bottom: 0;
-}
-
 .tool-card h3 {
   font-size: 1.22rem;
   line-height: 1.25;
