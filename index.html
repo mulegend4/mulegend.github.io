@@ -9,7 +9,7 @@
     />
     <title>Arslan Malek - Power Platform Architect</title>
     <link rel="preload" as="image" href="assets/home-headshot-relaxed.jpg" />
-    <link rel="stylesheet" href="styles.css?v=20260531-2" />
+    <link rel="stylesheet" href="styles.css?v=20260531-3" />
   </head>
   <body>
     <header class="site-header" aria-label="Primary">
@@ -107,9 +107,12 @@
             <p>Snowflake, SQL, Dataverse, Power Query, sensitive reporting, executive dashboards, and trusted analytics datasets.</p>
           </button>
           <button class="tool-card reveal" type="button" data-skill="governance-alm" data-skill-label="Governance & ALM">
-            <img class="skill-logo" src="assets/icons/power-platform/Power Platform/PowerPlatform_scalable.svg" alt="Power Platform logo" />
+            <span class="skill-logo-stack">
+              <img class="skill-logo" src="assets/icons/power-platform/Power Platform/PowerPlatform_scalable.svg" alt="Power Platform logo" />
+              <img class="skill-logo" src="assets/icons/azure-services.svg" alt="Azure services logo" />
+            </span>
             <h3>Governance & ALM</h3>
-            <p>CoE Kit, environment strategy, security review, Azure DevOps, Jira, solution promotion, and architecture documentation.</p>
+            <p>CoE Kit, DLP policies, environment strategy, security review, Azure DevOps, pipelines, Data Factory, Jira, and solution promotion.</p>
           </button>
         </div>
       </section>
@@ -180,6 +183,25 @@
                 Replaced a manual intake process with an agent that asks targeted business-analysis questions, summarizes requests, and gives the delivery team clearer next steps.
               </p>
               <p class="project-note">Click to view impact estimates, intake autonomy, and the screenshot note.</p>
+            </div>
+          </article>
+
+          <article class="project-card reveal" data-project="coe-governance" data-skills="governance-alm power-bi power-automate dataverse-dynamics" tabindex="0" role="button" aria-label="Open Power Platform CoE Governance and ALM project details">
+            <div class="project-visual project-visual-image">
+              <img class="project-shot" src="assets/projects/coe-governance/coe-command-center.png" alt="Power Platform Center of Excellence governance dashboard" />
+            </div>
+            <div class="project-copy">
+              <h3>Power Platform CoE Governance & ALM</h3>
+              <ul class="tech-list">
+                <li>CoE Kit</li>
+                <li>DLP Policies</li>
+                <li>Power BI</li>
+                <li>Azure DevOps</li>
+              </ul>
+              <p>
+                Set up and maintained CoE capabilities across enterprise tenants to govern apps, flows, agents, DLP policies, maker support, Power BI monitoring, and platform value.
+              </p>
+              <p class="project-note">Click to view governance model, DLP guardrails, reports, and nurture program.</p>
             </div>
           </article>
 
@@ -598,6 +620,107 @@
           </ul>
         </div>
         </div>
+
+        <div class="project-modal-content" data-modal-content="coe-governance" hidden>
+        <div class="modal-hero">
+          <img src="assets/projects/coe-governance/coe-command-center.png" alt="Clean Power Platform CoE governance command center visual" />
+          <div>
+            <p class="modal-kicker">Governance & ALM case study</p>
+            <h2 id="project-modal-title-coe">Power Platform CoE Governance & ALM</h2>
+            <p>
+              A governance operating model built around the Center of Excellence kit, DLP policies, Power BI monitoring, maker support, and ALM practices. I set up and kept CoE capabilities updated across environments for Nestle, Loblaw Companies Limited, BMO, and Intact Financial so admins could see what existed, who owned it, what was risky, and where support was needed.
+            </p>
+            <div class="modal-chip-row">
+              <span>CoE Kit</span>
+              <span>DLP Policies</span>
+              <span>Power BI Monitor</span>
+              <span>Business Value Toolkit</span>
+              <span>Azure DevOps</span>
+              <span>Maker Nurture</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal-section">
+          <h3>What I governed</h3>
+          <p>
+            The CoE setup gave admins a governed way to review apps, flows, agents, environments, owners, sharing, usage, connectors, orphaned resources, licensing risk, and support needs. A major focus was finding assets that had quietly become business-critical, such as apps or flows shared with more than 20 users without a known support model.
+          </p>
+          <div class="modal-highlight-grid">
+            <article>
+              <strong>Core inventory</strong>
+              <span>Used CoE core components to review apps, flows, agents, makers, connectors, ownership, sharing, and activity across environments.</span>
+            </article>
+            <article>
+              <strong>DLP guardrails</strong>
+              <span>Created data policies to stop risky connector combinations, rogue HTTP requests, and unapproved connector usage from exposing company data.</span>
+            </article>
+            <article>
+              <strong>Risk monitoring</strong>
+              <span>Used Power BI monitor reports to identify licensing exposure, orphaned apps, environment growth, and unmanaged assets.</span>
+            </article>
+            <article>
+              <strong>Maker nurture</strong>
+              <span>Hosted biweekly support sessions and maintained a SharePoint knowledge site for beginner guidance, platform FAQs, and premium license request links.</span>
+            </article>
+          </div>
+        </div>
+
+        <div class="modal-gallery">
+          <article class="modal-shot wide">
+            <img src="assets/projects/coe-governance/coe-core-flow.svg" alt="CoE core components workflow showing sync, inventory, risk review, and action" />
+            <div>
+              <h3>Core components operating model</h3>
+              <p>
+                The core components created the inventory foundation. I used that inventory to identify apps, flows, and agents that were live, broadly shared, orphaned, using concerning connectors, or missing clear ownership and support.
+              </p>
+            </div>
+          </article>
+
+          <article class="modal-shot">
+            <img src="assets/projects/coe-governance/coe-powerbi-monitor.svg" alt="Clean CoE Power BI monitor dashboard showing environments, app creation, risks, and filters" />
+            <div>
+              <h3>Power BI monitor</h3>
+              <p>
+                The monitor view made environment growth, apps, flows, makers, connector risk, licensing exposure, and orphaned assets easier to review with leaders and platform admins.
+              </p>
+            </div>
+          </article>
+
+          <article class="modal-shot">
+            <img src="assets/projects/coe-governance/coe-value-nurture.svg" alt="Business value toolkit and maker nurture model" />
+            <div>
+              <h3>Value and nurture</h3>
+              <p>
+                The business value toolkit helped capture and communicate platform value, while office hours and the SharePoint hub helped citizen developers learn safely and request the right support.
+              </p>
+            </div>
+          </article>
+        </div>
+
+        <div class="modal-section">
+          <h3>Skills highlighted</h3>
+          <ul class="skill-proof-list">
+            <li><strong>CoE Kit:</strong> set up, configured, maintained, and updated CoE kit components across multiple enterprise tenants.</li>
+            <li><strong>DLP and security:</strong> defined connector policy guardrails to reduce data leakage risk from HTTP, custom connectors, and unapproved connectors.</li>
+            <li><strong>Power BI:</strong> used CoE dashboards to monitor environments, app/flow usage, orphaned assets, licensing risk, and maker activity.</li>
+            <li><strong>ALM:</strong> supported governed delivery using Azure DevOps, pipelines, solution promotion, documentation, and environment strategy.</li>
+            <li><strong>Data platform:</strong> connected platform governance practices with Azure Data Factory, reporting datasets, and operational monitoring needs.</li>
+            <li><strong>Nurture program:</strong> ran biweekly office hours and built SharePoint knowledge content for beginners, support paths, and premium licensing guidance.</li>
+          </ul>
+        </div>
+
+        <div class="modal-section">
+          <h3>Reference areas</h3>
+          <div class="source-link-grid">
+            <a href="https://learn.microsoft.com/en-us/power-platform/guidance/coe/core-components" target="_blank" rel="noopener noreferrer">CoE core components</a>
+            <a href="https://learn.microsoft.com/en-us/power-platform/guidance/coe/governance-components" target="_blank" rel="noopener noreferrer">CoE governance components</a>
+            <a href="https://learn.microsoft.com/en-us/power-platform/guidance/coe/business-value-toolkit" target="_blank" rel="noopener noreferrer">Business value toolkit</a>
+            <a href="https://learn.microsoft.com/en-us/power-platform/guidance/coe/power-bi-monitor" target="_blank" rel="noopener noreferrer">CoE Power BI monitor</a>
+            <a href="https://learn.microsoft.com/en-us/power-platform/guidance/adoption/dlp-strategy" target="_blank" rel="noopener noreferrer">Power Platform DLP strategy</a>
+          </div>
+        </div>
+        </div>
       </section>
     </div>
 
@@ -622,6 +745,6 @@
       <p class="footer-credit">Developed by Arslan Malek</p>
     </footer>
 
-    <script src="app.js?v=20260531-2"></script>
+    <script src="app.js?v=20260531-3"></script>
   </body>
 </html>

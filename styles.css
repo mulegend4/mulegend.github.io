@@ -430,6 +430,17 @@ main {
   width: 54px;
 }
 
+.skill-logo-stack {
+  align-items: center;
+  display: flex;
+  gap: 0.7rem;
+  margin-bottom: 1.55rem;
+}
+
+.skill-logo-stack .skill-logo {
+  margin-bottom: 0;
+}
+
 .tool-card h3 {
   font-size: 1.22rem;
   line-height: 1.25;
@@ -1154,6 +1165,30 @@ main {
   margin-bottom: 0.35rem;
 }
 
+.source-link-grid {
+  display: grid;
+  gap: 0.7rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.source-link-grid a {
+  background: rgb(255 255 255 / 0.06);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--teal);
+  font-weight: 800;
+  line-height: 1.35;
+  padding: 0.85rem 1rem;
+  text-decoration: none;
+  transition: background 0.18s ease, border-color 0.18s ease, transform 0.18s ease;
+}
+
+.source-link-grid a:hover {
+  background: rgb(255 255 255 / 0.1);
+  border-color: rgb(53 208 196 / 0.42);
+  transform: translateY(-1px);
+}
+
 .modal-gallery {
   display: grid;
   gap: 1rem;
@@ -1322,7 +1357,8 @@ main {
 
   .modal-hero,
   .modal-gallery,
-  .modal-highlight-grid {
+  .modal-highlight-grid,
+  .source-link-grid {
     grid-template-columns: 1fr;
   }
 
