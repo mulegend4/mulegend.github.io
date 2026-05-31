@@ -7,6 +7,7 @@
   var clearFilterButton = document.getElementById("clear-project-filter");
   var modal = document.getElementById("project-modal");
   var modalClose = document.getElementById("modal-close");
+  var modalBackToTop = document.getElementById("modal-back-to-top");
   var projectButtons = Array.prototype.slice.call(document.querySelectorAll(".project-card[data-project]"));
   var modalContents = Array.prototype.slice.call(document.querySelectorAll("[data-modal-content]"));
   var backToTopButton = document.querySelector(".back-to-top-float");
@@ -61,6 +62,13 @@
     document.documentElement.style.setProperty("--scroll-cue-progress", cueProgress.toFixed(3));
     document.body.classList.toggle("has-scrolled", window.scrollY > 8);
     document.body.classList.toggle("at-page-end", nearBottom);
+  }
+
+  function updateModalBackToTop() {
+    if (!modal) return;
+    var active = !modal.hidden && modal.scrollTop > 260;
+    modal.classList.toggle("modal-scrolled", active);
+    document.body.classList.toggle("modal-project-scrolled", active);
   }
 
   function applySkillFilter(skill, label) {
@@ -140,6 +148,7 @@
     modal.hidden = false;
     document.body.classList.add("modal-open");
     modal.scrollTop = 0;
+    updateModalBackToTop();
     if (modalClose) {
       modalClose.focus();
     }
@@ -148,6 +157,8 @@
   function closeProjectModal() {
     if (!modal) return;
     modal.hidden = true;
+    modal.classList.remove("modal-scrolled");
+    document.body.classList.remove("modal-project-scrolled");
     document.body.classList.remove("modal-open");
     resetProjectMedia();
     if (activeProjectTrigger) {
@@ -204,11 +215,24 @@
         closeProjectModal();
       }
     });
+    modal.addEventListener(
+      "scroll",
+      function () {
+        window.requestAnimationFrame(updateModalBackToTop);
+      },
+      { passive: true }
+    );
   }
 
   if (backToTopButton) {
     backToTopButton.addEventListener("click", function () {
       document.getElementById("home").scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+  }
+
+  if (modalBackToTop && modal) {
+    modalBackToTop.addEventListener("click", function () {
+      modal.scrollTo({ top: 0, behavior: "smooth" });
     });
   }
 

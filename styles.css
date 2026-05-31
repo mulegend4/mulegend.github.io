@@ -456,6 +456,7 @@ body.has-scrolled .scroll-cue {
   cursor: pointer;
   min-height: 255px;
   padding: 1.3rem;
+  position: relative;
   text-align: left;
   transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
   width: 100%;
@@ -468,15 +469,202 @@ body.has-scrolled .scroll-cue {
   transform: translateY(-4px);
 }
 
-.skill-logo {
+.skill-logo-stage {
+  --motion-color: var(--teal);
+  align-items: center;
   background: rgb(255 255 255 / 0.96);
   border-radius: 8px;
   box-shadow: 0 14px 34px rgb(0 0 0 / 0.24);
-  height: 54px;
+  display: flex;
+  height: 62px;
+  justify-content: center;
   margin-bottom: 1.55rem;
+  overflow: hidden;
+  position: relative;
+  transition: box-shadow 0.22s ease, transform 0.22s ease;
+  width: 62px;
+}
+
+.skill-logo-stage::after {
+  background: linear-gradient(110deg, transparent 18%, rgb(255 255 255 / 0.62) 48%, transparent 72%);
+  content: "";
+  inset: -30% -90%;
+  opacity: 0;
+  position: absolute;
+  transform: translateX(-55%) rotate(12deg);
+  transition: opacity 0.18s ease;
+}
+
+.skill-power-apps {
+  --motion-color: #6c63ff;
+}
+
+.skill-copilot {
+  --motion-color: #28c8b9;
+}
+
+.skill-automate {
+  --motion-color: #1c86ff;
+}
+
+.skill-dataverse {
+  --motion-color: #2f9cf4;
+}
+
+.skill-power-bi {
+  --motion-color: #e5ac18;
+}
+
+.skill-governance {
+  --motion-color: #7ad7ff;
+}
+
+.skill-logo {
+  background: transparent;
+  border-radius: 0;
+  box-shadow: none;
+  height: 54px;
+  margin: 0;
   object-fit: contain;
-  padding: 0.55rem;
+  padding: 0.5rem;
+  position: relative;
+  z-index: 1;
   width: 54px;
+}
+
+.skill-motion-icon {
+  align-items: center;
+  color: var(--motion-color);
+  display: flex;
+  inset: 0;
+  justify-content: center;
+  opacity: 0;
+  position: absolute;
+  transform: translateY(0.55rem) scale(0.74);
+  z-index: 2;
+}
+
+.skill-motion-icon svg {
+  fill: none;
+  height: 38px;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2.4;
+  width: 38px;
+}
+
+.tool-card:hover .skill-logo-stage,
+.tool-card:focus-visible .skill-logo-stage {
+  box-shadow: 0 18px 42px rgb(0 0 0 / 0.28), 0 0 0 1px rgb(255 255 255 / 0.5);
+  transform: translateY(-2px) scale(1.03);
+}
+
+.tool-card:hover .skill-logo-stage::after,
+.tool-card:focus-visible .skill-logo-stage::after {
+  animation: skill-sheen 4.2s ease both;
+  opacity: 1;
+}
+
+.tool-card:hover .skill-logo,
+.tool-card:focus-visible .skill-logo {
+  animation: skill-logo-cycle 4.2s ease both;
+}
+
+.tool-card:hover .motion-one,
+.tool-card:focus-visible .motion-one {
+  animation: skill-motion-one 4.2s ease both;
+}
+
+.tool-card:hover .motion-two,
+.tool-card:focus-visible .motion-two {
+  animation: skill-motion-two 4.2s ease both;
+}
+
+.tool-card:hover .motion-three,
+.tool-card:focus-visible .motion-three {
+  animation: skill-motion-three 4.2s ease both;
+}
+
+@keyframes skill-logo-cycle {
+  0%,
+  14%,
+  90%,
+  100% {
+    filter: blur(0);
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  24%,
+  78% {
+    filter: blur(2px);
+    opacity: 0;
+    transform: scale(0.78) rotate(-6deg);
+  }
+}
+
+@keyframes skill-motion-one {
+  0%,
+  15%,
+  43%,
+  100% {
+    opacity: 0;
+    transform: translate(-0.5rem, 0.5rem) scale(0.7) rotate(-8deg);
+  }
+
+  23%,
+  35% {
+    opacity: 1;
+    transform: translate(0, 0) scale(1) rotate(0deg);
+  }
+}
+
+@keyframes skill-motion-two {
+  0%,
+  39%,
+  67%,
+  100% {
+    opacity: 0;
+    transform: translate(0.55rem, 0.2rem) scale(0.72) rotate(8deg);
+  }
+
+  48%,
+  60% {
+    opacity: 1;
+    transform: translate(0, 0) scale(1) rotate(0deg);
+  }
+}
+
+@keyframes skill-motion-three {
+  0%,
+  62%,
+  88%,
+  100% {
+    opacity: 0;
+    transform: translateY(-0.45rem) scale(0.72) rotate(-4deg);
+  }
+
+  72%,
+  81% {
+    opacity: 1;
+    transform: translate(0, 0) scale(1) rotate(0deg);
+  }
+}
+
+@keyframes skill-sheen {
+  0%,
+  12% {
+    transform: translateX(-55%) rotate(12deg);
+  }
+
+  55% {
+    transform: translateX(40%) rotate(12deg);
+  }
+
+  100% {
+    transform: translateX(70%) rotate(12deg);
+  }
 }
 
 .tool-card h3 {
@@ -1142,13 +1330,52 @@ body.at-page-end .back-to-top-float {
   background: rgb(255 255 255 / 0.14);
 }
 
-.modal-close svg {
+.modal-close svg,
+.modal-back-to-top svg {
   fill: none;
   height: 1.2rem;
   stroke: currentColor;
   stroke-linecap: round;
+  stroke-linejoin: round;
   stroke-width: 2;
   width: 1.2rem;
+}
+
+.modal-back-to-top {
+  align-items: center;
+  background: rgb(18 19 26 / 0.95);
+  border: 1px solid var(--border-strong);
+  border-radius: 999px;
+  bottom: 1.15rem;
+  box-shadow: 0 18px 48px rgb(0 0 0 / 0.42);
+  color: var(--text);
+  cursor: pointer;
+  display: inline-flex;
+  gap: 0.55rem;
+  opacity: 0;
+  padding: 0.76rem 0.9rem 0.76rem 1rem;
+  pointer-events: none;
+  position: fixed;
+  right: 1.15rem;
+  transform: translateY(0.8rem);
+  transition: opacity 0.22s ease, transform 0.22s ease, border-color 0.18s ease, background 0.18s ease;
+  z-index: 120;
+}
+
+.modal-back-to-top span {
+  font-size: 0.82rem;
+  font-weight: 800;
+}
+
+.modal-back-to-top:hover {
+  background: rgb(255 255 255 / 0.12);
+  border-color: rgb(53 208 196 / 0.44);
+}
+
+body.modal-project-scrolled .modal-back-to-top {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
 }
 
 .modal-hero {
@@ -1158,7 +1385,13 @@ body.at-page-end .back-to-top-float {
   padding: 4.4rem 1.4rem 1.4rem;
 }
 
-.modal-hero > img,
+.modal-media-panel {
+  align-content: start;
+  display: grid;
+  gap: 0.8rem;
+}
+
+.modal-media-panel > img,
 .modal-shot img {
   background: #fff;
   border: 1px solid var(--border);
@@ -1166,6 +1399,42 @@ body.at-page-end .back-to-top-float {
   box-shadow: 0 20px 70px rgb(0 0 0 / 0.32);
   height: auto;
   width: 100%;
+}
+
+.modal-skill-icons {
+  display: grid;
+  gap: 0.5rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.modal-skill-icon {
+  align-items: center;
+  background: rgb(255 255 255 / 0.07);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  display: flex;
+  gap: 0.48rem;
+  min-height: 3.1rem;
+  padding: 0.48rem 0.55rem;
+}
+
+.modal-skill-icon img {
+  background: rgb(255 255 255 / 0.96);
+  border-radius: 7px;
+  flex: 0 0 auto;
+  height: 2rem;
+  object-fit: contain;
+  padding: 0.28rem;
+  width: 2rem;
+}
+
+.modal-skill-icon span {
+  color: rgb(255 255 255 / 0.82);
+  font-size: 0.68rem;
+  font-weight: 850;
+  letter-spacing: 0.03em;
+  line-height: 1.15;
+  text-transform: uppercase;
 }
 
 .modal-kicker {
@@ -1407,8 +1676,19 @@ body.at-page-end .back-to-top-float {
   .tool-card,
   .social-icon,
   .nav-pill,
-  .experience-item summary svg {
+  .experience-item summary svg,
+  .modal-back-to-top,
+  .skill-logo-stage {
     transition: none;
+  }
+
+  .tool-card:hover .skill-logo,
+  .tool-card:focus-visible .skill-logo,
+  .tool-card:hover .skill-logo-stage::after,
+  .tool-card:focus-visible .skill-logo-stage::after,
+  .tool-card:hover .skill-motion-icon,
+  .tool-card:focus-visible .skill-motion-icon {
+    animation: none;
   }
 }
 
@@ -1541,6 +1821,15 @@ body.at-page-end .back-to-top-float {
     padding-right: 1rem;
   }
 
+  .modal-back-to-top {
+    bottom: 0.9rem;
+    right: 0.9rem;
+  }
+
+  .modal-skill-icons {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .filter-banner {
     align-items: stretch;
     flex-direction: column;
@@ -1586,6 +1875,14 @@ body.at-page-end .back-to-top-float {
   .social-icon {
     height: 3.1rem;
     width: 3.1rem;
+  }
+
+  .modal-skill-icons {
+    grid-template-columns: 1fr;
+  }
+
+  .modal-back-to-top span {
+    display: none;
   }
 
   .section-divider {
