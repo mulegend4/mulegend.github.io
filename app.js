@@ -12,6 +12,8 @@
   var modalContents = Array.prototype.slice.call(document.querySelectorAll("[data-modal-content]"));
   var backToTopButton = document.querySelector(".back-to-top-float");
   var themeToggle = document.getElementById("theme-toggle");
+  var timelineButtons = Array.prototype.slice.call(document.querySelectorAll("[data-experience-target]"));
+  var experienceItems = Array.prototype.slice.call(document.querySelectorAll(".experience-item[id]"));
   var activeProjectTrigger = null;
   var sections = navLinks
     .map(function (link) {
@@ -76,6 +78,31 @@
 
   function getCurrentTheme() {
     return document.documentElement.hasAttribute("data-theme") ? "light" : "dark";
+  }
+
+  function updateTimelineActive(activeId) {
+    timelineButtons.forEach(function (button) {
+      button.classList.toggle("timeline-active", button.getAttribute("data-experience-target") === activeId);
+    });
+  }
+
+  function openExperienceFromTimeline(targetId) {
+    var target = document.getElementById(targetId);
+    if (!target) return;
+
+    experienceItems.forEach(function (item) {
+      item.open = item === target;
+    });
+
+    updateTimelineActive(targetId);
+    target.scrollIntoView({ behavior: "smooth", block: "center" });
+
+    var summary = target.querySelector("summary");
+    if (summary) {
+      window.setTimeout(function () {
+        summary.focus({ preventScroll: true });
+      }, 280);
+    }
   }
 
   function updateScrollChrome() {
@@ -263,6 +290,22 @@
       setTheme(getCurrentTheme() === "light" ? "dark" : "light", true);
     });
   }
+
+  timelineButtons.forEach(function (button) {
+    button.addEventListener("click", function () {
+      openExperienceFromTimeline(button.getAttribute("data-experience-target"));
+    });
+  });
+
+  experienceItems.forEach(function (item) {
+    item.addEventListener("toggle", function () {
+      if (item.open) {
+        updateTimelineActive(item.id);
+      } else if (!experienceItems.some(function (candidate) { return candidate.open; })) {
+        updateTimelineActive("");
+      }
+    });
+  });
 
   if (modalBackToTop && modal) {
     modalBackToTop.addEventListener("click", function () {

@@ -18,7 +18,7 @@
         } catch (error) {}
       })();
     </script>
-    <link rel="stylesheet" href="styles.css?v=20260531-9" />
+    <link rel="stylesheet" href="styles.css?v=20260531-10" />
   </head>
   <body>
     <header class="site-header" aria-label="Primary">
@@ -350,8 +350,31 @@
         <p class="section-kicker reveal">Experience</p>
         <h2 class="section-title reveal">Select each role to view achievements, delivery highlights, and impact.</h2>
 
+        <div class="experience-timeline reveal" aria-label="Career timeline">
+          <button class="timeline-node" type="button" data-experience-target="experience-intact" aria-label="Open Intact Financial experience">
+            <span>Nov 2023 - Present</span>
+            <strong>Intact Financial</strong>
+          </button>
+          <button class="timeline-node" type="button" data-experience-target="experience-bmo" aria-label="Open BMO experience">
+            <span>Jul 2022 - Oct 2023</span>
+            <strong>BMO</strong>
+          </button>
+          <button class="timeline-node" type="button" data-experience-target="experience-nestle" aria-label="Open Nestlé Canada experience">
+            <span>Nov 2020 - Jun 2022</span>
+            <strong>Nestlé Canada</strong>
+          </button>
+          <button class="timeline-node" type="button" data-experience-target="experience-loblaw" aria-label="Open Loblaw Companies Limited experience">
+            <span>Mar 2019 - Oct 2020</span>
+            <strong>Loblaw</strong>
+          </button>
+          <button class="timeline-node" type="button" data-experience-target="experience-shoppers" aria-label="Open Shoppers Drug Mart experience">
+            <span>Jan 2018 - Feb 2019</span>
+            <strong>Shoppers</strong>
+          </button>
+        </div>
+
         <div class="experience-list">
-          <details class="experience-item reveal">
+          <details class="experience-item reveal" id="experience-intact">
             <summary>
               <div class="experience-meta">
                 <span class="experience-date"><span>Nov 2023</span><span>Present</span></span>
@@ -374,7 +397,7 @@
             </div>
           </details>
 
-          <details class="experience-item reveal">
+          <details class="experience-item reveal" id="experience-bmo">
             <summary>
               <div class="experience-meta">
                 <span class="experience-date"><span>Jul 2022</span><span>Oct 2023</span></span>
@@ -397,7 +420,7 @@
             </div>
           </details>
 
-          <details class="experience-item reveal">
+          <details class="experience-item reveal" id="experience-nestle">
             <summary>
               <div class="experience-meta">
                 <span class="experience-date"><span>Nov 2020</span><span>Jun 2022</span></span>
@@ -420,7 +443,7 @@
             </div>
           </details>
 
-          <details class="experience-item reveal">
+          <details class="experience-item reveal" id="experience-loblaw">
             <summary>
               <div class="experience-meta">
                 <span class="experience-date"><span>Mar 2019</span><span>Oct 2020</span></span>
@@ -443,7 +466,7 @@
             </div>
           </details>
 
-          <details class="experience-item reveal">
+          <details class="experience-item reveal" id="experience-shoppers">
             <summary>
               <div class="experience-meta">
                 <span class="experience-date"><span>Jan 2018</span><span>Feb 2019</span></span>
@@ -970,6 +993,6 @@
       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 15l-6-6-6 6" /></svg>
     </button>
 
-    <script src="app.js?v=20260531-9"></script>
+    <script src="app.js?v=20260531-10"></script>
   </body>
 </html>
