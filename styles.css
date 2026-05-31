@@ -250,6 +250,165 @@ html[data-theme="light"] .theme-icon-moon {
   display: block;
 }
 
+.welcome-sequence,
+.portfolio-tour {
+  display: none;
+  pointer-events: none;
+  position: fixed;
+}
+
+body.welcome-active .welcome-sequence {
+  align-items: center;
+  animation: welcome-shell 6.8s ease forwards;
+  background:
+    radial-gradient(circle at 50% 30%, rgb(112 56 178 / 0.22), transparent 22rem),
+    rgb(5 5 6 / 0.34);
+  display: grid;
+  inset: 0;
+  justify-items: center;
+  padding: 1.25rem;
+  z-index: 90;
+}
+
+.welcome-card {
+  animation: welcome-card 6.6s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+  background: rgb(12 13 19 / 0.82);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius);
+  box-shadow: 0 28px 90px rgb(0 0 0 / 0.38);
+  max-width: 660px;
+  padding: 1.35rem 1.55rem;
+  text-align: center;
+  backdrop-filter: blur(18px);
+}
+
+.welcome-card span {
+  color: var(--teal);
+  display: block;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.13em;
+  margin-bottom: 0.55rem;
+  text-transform: uppercase;
+}
+
+.welcome-card p {
+  color: var(--text);
+  font-size: clamp(1.05rem, 2.4vw, 1.42rem);
+  font-weight: 700;
+  line-height: 1.5;
+  margin: 0;
+}
+
+body.welcome-active .portfolio-tour {
+  animation: tour-layer 7.4s ease forwards;
+  display: block;
+  inset: 0;
+  z-index: 91;
+}
+
+.tour-tip {
+  animation: tour-tip 3.8s ease forwards;
+  background: rgb(18 19 26 / 0.96);
+  border: 1px solid var(--border-strong);
+  border-radius: 8px;
+  box-shadow: 0 18px 52px rgb(0 0 0 / 0.32);
+  color: #f5f7fb;
+  font-size: 0.8rem;
+  font-weight: 800;
+  line-height: 1.35;
+  max-width: min(21rem, calc(100vw - 2rem));
+  opacity: 0;
+  padding: 0.68rem 0.82rem;
+  position: absolute;
+  text-align: center;
+}
+
+.tour-tip-nav {
+  animation-delay: 2s;
+  left: 50%;
+  top: 5.45rem;
+  transform: translate(-50%, -0.35rem);
+}
+
+.tour-tip-theme {
+  animation-delay: 2.55s;
+  right: 1.1rem;
+  top: 5.45rem;
+  transform: translateY(-0.35rem);
+}
+
+.tour-tip-scroll {
+  animation-delay: 3.1s;
+  bottom: 7.15rem;
+  left: 50%;
+  transform: translate(-50%, 0.35rem);
+}
+
+@keyframes welcome-shell {
+  0% {
+    opacity: 0;
+  }
+
+  12%,
+  74% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes welcome-card {
+  0% {
+    opacity: 0;
+    transform: translateY(0.85rem) scale(0.96);
+  }
+
+  16%,
+  68% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(-0.6rem) scale(0.98);
+  }
+}
+
+@keyframes tour-layer {
+  0%,
+  18% {
+    opacity: 0;
+  }
+
+  24%,
+  78% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes tour-tip {
+  0% {
+    opacity: 0;
+  }
+
+  16%,
+  72% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
 .nav-pill {
   border: 1px solid transparent;
   border-radius: 999px;
@@ -484,6 +643,38 @@ body.has-scrolled .scroll-cue {
   opacity: 1;
   transform: translate(-50%, 0);
   visibility: visible;
+}
+
+.home-hint-zone {
+  align-items: flex-start;
+  display: flex;
+  justify-content: center;
+  margin-top: 0.8rem;
+  min-height: 3.1rem;
+  width: min(26rem, calc(100vw - 2rem));
+  z-index: 2;
+}
+
+.home-hint-zone span {
+  background: rgb(18 19 26 / 0.92);
+  border: 1px solid var(--border-strong);
+  border-radius: 999px;
+  box-shadow: 0 18px 44px rgb(0 0 0 / 0.28);
+  color: #f5f7fb;
+  font-size: 0.78rem;
+  font-weight: 800;
+  line-height: 1.35;
+  opacity: 0;
+  padding: 0.58rem 0.82rem;
+  transform: translateY(-0.18rem);
+  transition: opacity 0.18s ease, transform 0.18s ease;
+}
+
+.social-row:hover + .home-hint-zone span,
+.social-row:focus-within + .home-hint-zone span,
+.home-hint-zone:hover span {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .section-divider {
@@ -1957,9 +2148,18 @@ html[data-theme="light"] .modal-back-to-top:hover {
 }
 
 html[data-theme="light"] .social-icon::after,
-html[data-theme="light"] .theme-toggle::after {
+html[data-theme="light"] .theme-toggle::after,
+html[data-theme="light"] .welcome-card,
+html[data-theme="light"] .tour-tip,
+html[data-theme="light"] .home-hint-zone span {
   background: rgb(17 24 39 / 0.96);
   color: #f8fafc;
+}
+
+html[data-theme="light"] body.welcome-active .welcome-sequence {
+  background:
+    radial-gradient(circle at 50% 30%, rgb(120 72 190 / 0.2), transparent 22rem),
+    rgb(248 250 252 / 0.42);
 }
 
 html[data-theme="light"] .social-icon::before {
@@ -2187,10 +2387,18 @@ html[data-theme="light"] .modal-callout {
   .social-icon,
   .nav-pill,
   .theme-toggle,
+  .welcome-card,
+  .tour-tip,
+  .home-hint-zone span,
   .experience-item summary svg,
   .modal-back-to-top,
   .skill-logo-stage {
     transition: none;
+  }
+
+  body.welcome-active .welcome-sequence,
+  body.welcome-active .portfolio-tour {
+    display: none;
   }
 
   .tool-card:hover .skill-logo,
@@ -2233,6 +2441,27 @@ html[data-theme="light"] .modal-callout {
     height: 2.55rem;
     right: 0.65rem;
     width: 2.55rem;
+  }
+
+  .tour-tip {
+    font-size: 0.72rem;
+    max-width: min(17rem, calc(100vw - 1.5rem));
+    padding: 0.58rem 0.68rem;
+  }
+
+  .tour-tip-nav {
+    left: 0.8rem;
+    top: 5.35rem;
+    transform: translateY(-0.35rem);
+  }
+
+  .tour-tip-theme {
+    right: 0.65rem;
+    top: 5.35rem;
+  }
+
+  .tour-tip-scroll {
+    bottom: 4.85rem;
   }
 
   .nav-pill {

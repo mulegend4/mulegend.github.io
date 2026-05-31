@@ -11,14 +11,25 @@
     <link rel="preload" as="image" href="assets/home-headshot-relaxed.jpg" />
     <script>
       (function () {
+        var savedTheme = "";
+        var prefersDark = false;
+
         try {
-          if (localStorage.getItem("portfolio-theme") === "light") {
-            document.documentElement.setAttribute("data-theme", "light");
-          }
+          savedTheme = localStorage.getItem("portfolio-theme") || "";
         } catch (error) {}
+
+        try {
+          prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+        } catch (error) {}
+
+        if (savedTheme === "light" || (!savedTheme && !prefersDark)) {
+          document.documentElement.setAttribute("data-theme", "light");
+        } else {
+          document.documentElement.removeAttribute("data-theme");
+        }
       })();
     </script>
-    <link rel="stylesheet" href="styles.css?v=20260531-11" />
+    <link rel="stylesheet" href="styles.css?v=20260531-12" />
   </head>
   <body>
     <header class="site-header" aria-label="Primary">
@@ -40,6 +51,19 @@
         </svg>
       </button>
     </header>
+
+    <div class="welcome-sequence" id="welcome-sequence" aria-hidden="true">
+      <div class="welcome-card">
+        <span>Welcome to my portfolio</span>
+        <p>I build governed Power Platform products, Copilot agents, and automation systems that turn enterprise complexity into measurable business outcomes.</p>
+      </div>
+    </div>
+
+    <div class="portfolio-tour" id="portfolio-tour" aria-hidden="true">
+      <span class="tour-tip tour-tip-nav">Use the top navigation to jump between skills, projects, and experience.</span>
+      <span class="tour-tip tour-tip-theme">Prefer another look? Switch between light and dark mode here.</span>
+      <span class="tour-tip tour-tip-scroll">Scroll down to see the work behind the headline.</span>
+    </div>
 
     <main>
       <section id="home" class="hero section-anchor">
@@ -68,6 +92,9 @@
               <path d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7Zm0 9.6A2.6 2.6 0 1 1 12 6.4a2.6 2.6 0 0 1 0 5.2Z" />
             </svg>
           </a>
+        </div>
+        <div class="home-hint-zone reveal" aria-hidden="true">
+          <span>Scroll to explore the skills, projects, and experience behind the work.</span>
         </div>
         <a class="scroll-cue" href="#about" aria-label="Scroll to about section">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" /></svg>
@@ -993,6 +1020,6 @@
       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 15l-6-6-6 6" /></svg>
     </button>
 
-    <script src="app.js?v=20260531-11"></script>
+    <script src="app.js?v=20260531-12"></script>
   </body>
 </html>

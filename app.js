@@ -12,6 +12,9 @@
   var modalContents = Array.prototype.slice.call(document.querySelectorAll("[data-modal-content]"));
   var backToTopButton = document.querySelector(".back-to-top-float");
   var themeToggle = document.getElementById("theme-toggle");
+  var welcomeSequence = document.getElementById("welcome-sequence");
+  var portfolioTour = document.getElementById("portfolio-tour");
+  var colorSchemeQuery = window.matchMedia ? window.matchMedia("(prefers-color-scheme: dark)") : null;
   var timelineButtons = Array.prototype.slice.call(document.querySelectorAll("[data-experience-target]"));
   var experienceItems = Array.prototype.slice.call(document.querySelectorAll(".experience-item[id]"));
   var activeProjectTrigger = null;
@@ -54,6 +57,23 @@
     return Math.min(max, Math.max(min, value));
   }
 
+  function getStoredTheme() {
+    try {
+      var saved = localStorage.getItem("portfolio-theme");
+      return saved === "light" || saved === "dark" ? saved : "";
+    } catch (error) {
+      return "";
+    }
+  }
+
+  function getSystemTheme() {
+    return colorSchemeQuery && colorSchemeQuery.matches ? "dark" : "light";
+  }
+
+  function getPreferredTheme() {
+    return getStoredTheme() || getSystemTheme();
+  }
+
   function setTheme(theme, persist) {
     var lightMode = theme === "light";
     if (lightMode) {
@@ -78,6 +98,35 @@
 
   function getCurrentTheme() {
     return document.documentElement.hasAttribute("data-theme") ? "light" : "dark";
+  }
+
+  function syncThemeFromSystem() {
+    if (!getStoredTheme()) {
+      setTheme(getSystemTheme(), false);
+    }
+  }
+
+  function runWelcomeSequence() {
+    var reducedMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reducedMotion || window.location.hash && window.location.hash !== "#home") return;
+
+    if (welcomeSequence) {
+      welcomeSequence.setAttribute("aria-hidden", "false");
+    }
+    if (portfolioTour) {
+      portfolioTour.setAttribute("aria-hidden", "false");
+    }
+
+    document.body.classList.add("welcome-active");
+    window.setTimeout(function () {
+      document.body.classList.remove("welcome-active");
+      if (welcomeSequence) {
+        welcomeSequence.setAttribute("aria-hidden", "true");
+      }
+      if (portfolioTour) {
+        portfolioTour.setAttribute("aria-hidden", "true");
+      }
+    }, 7800);
   }
 
   function updateTimelineActive(activeId) {
@@ -292,10 +341,18 @@
   }
 
   if (themeToggle) {
-    setTheme(getCurrentTheme(), false);
+    setTheme(getPreferredTheme(), false);
     themeToggle.addEventListener("click", function () {
       setTheme(getCurrentTheme() === "light" ? "dark" : "light", true);
     });
+  }
+
+  if (colorSchemeQuery) {
+    if (colorSchemeQuery.addEventListener) {
+      colorSchemeQuery.addEventListener("change", syncThemeFromSystem);
+    } else if (colorSchemeQuery.addListener) {
+      colorSchemeQuery.addListener(syncThemeFromSystem);
+    }
   }
 
   timelineButtons.forEach(function (button) {
@@ -414,6 +471,7 @@
 
   updateActiveFromScroll();
   updateScrollChrome();
+  runWelcomeSequence();
   window.addEventListener("resize", updateScrollChrome);
   window.addEventListener("load", updateScrollChrome);
 })();
