@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 330 120" role="img" aria-label="Intact Insurance">
+  <rect width="330" height="120" rx="8" fill="#fff"/>
+  <path fill="none" stroke="#d61f34" stroke-width="10" d="M58 20H26v80h32M272 20h32v80h-32"/>
+  <circle cx="122" cy="41" r="7" fill="#000"/>
+  <text x="70" y="76" fill="#000" font-family="Georgia, 'Times New Roman', serif" font-size="62" font-weight="600">intact</text>
+  <text x="88" y="102" fill="#d61f34" font-family="Arial, sans-serif" font-size="17" font-weight="800" letter-spacing="7">INSURANCE</text>
+</svg>

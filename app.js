@@ -9,6 +9,7 @@
   var modalClose = document.getElementById("modal-close");
   var projectButtons = Array.prototype.slice.call(document.querySelectorAll(".project-card[data-project]"));
   var modalContents = Array.prototype.slice.call(document.querySelectorAll("[data-modal-content]"));
+  var backToTopButton = document.querySelector(".back-to-top-float");
   var activeProjectTrigger = null;
   var sections = navLinks
     .map(function (link) {
@@ -43,6 +44,23 @@
     if (current) {
       setActive(current);
     }
+  }
+
+  function clamp(value, min, max) {
+    return Math.min(max, Math.max(min, value));
+  }
+
+  function updateScrollChrome() {
+    var aboutSection = document.getElementById("about");
+    var shrinkDistance = aboutSection ? Math.max(120, aboutSection.offsetTop * 0.25) : 240;
+    var navProgress = clamp(window.scrollY / shrinkDistance, 0, 1);
+    var cueProgress = clamp(window.scrollY / 90, 0, 1);
+    var nearBottom = window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 120;
+
+    document.documentElement.style.setProperty("--nav-progress", navProgress.toFixed(3));
+    document.documentElement.style.setProperty("--scroll-cue-progress", cueProgress.toFixed(3));
+    document.body.classList.toggle("has-scrolled", window.scrollY > 8);
+    document.body.classList.toggle("at-page-end", nearBottom);
   }
 
   function applySkillFilter(skill, label) {
@@ -188,6 +206,12 @@
     });
   }
 
+  if (backToTopButton) {
+    backToTopButton.addEventListener("click", function () {
+      document.getElementById("home").scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+  }
+
   document.addEventListener("keydown", function (event) {
     if (event.key === "Escape" && modal && !modal.hidden) {
       closeProjectModal();
@@ -253,6 +277,7 @@
       if (!ticking) {
         window.requestAnimationFrame(function () {
           updateActiveFromScroll();
+          updateScrollChrome();
           ticking = false;
         });
         ticking = true;
@@ -262,4 +287,7 @@
   );
 
   updateActiveFromScroll();
+  updateScrollChrome();
+  window.addEventListener("resize", updateScrollChrome);
+  window.addEventListener("load", updateScrollChrome);
 })();
