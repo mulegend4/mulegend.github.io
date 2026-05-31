@@ -1344,7 +1344,7 @@ body.has-scrolled .home-hover-zone {
 
 .timeline-node.timeline-active {
   color: var(--text);
-  transform: translateY(-8px) scale(1.13);
+  transform: translateY(-6px) scale(1.08);
 }
 
 .timeline-node.timeline-active span {
@@ -1360,14 +1360,14 @@ body.has-scrolled .home-hover-zone {
 }
 
 .timeline-node.timeline-active::before {
-  box-shadow: 0 0 0 7px #050506, 0 0 0 10px rgb(53 208 196 / 0.26), 0 0 42px rgb(53 208 196 / 0.58);
-  height: 1.42rem;
-  top: 1.33rem;
-  width: 1.42rem;
+  box-shadow: 0 0 0 5px #050506, 0 0 0 7px rgb(53 208 196 / 0.22), 0 0 30px rgb(53 208 196 / 0.5);
+  height: 1.2rem;
+  top: 1.45rem;
+  width: 1.2rem;
 }
 
 .timeline-node.timeline-active::after {
-  height: 3rem;
+  height: 2.4rem;
   opacity: 1;
 }
 
@@ -2177,7 +2177,7 @@ html[data-theme="light"] .timeline-node.timeline-active strong {
 }
 
 html[data-theme="light"] .timeline-node.timeline-active::before {
-  box-shadow: 0 0 0 7px #f8fafc, 0 0 0 10px rgb(15 143 135 / 0.2), 0 0 38px rgb(15 143 135 / 0.34);
+  box-shadow: 0 0 0 5px #f8fafc, 0 0 0 7px rgb(15 143 135 / 0.18), 0 0 28px rgb(15 143 135 / 0.3);
 }
 
 html[data-theme="light"] .filter-banner {
