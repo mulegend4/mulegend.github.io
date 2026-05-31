@@ -9,7 +9,16 @@
     />
     <title>Arslan Malek - Power Platform Architect</title>
     <link rel="preload" as="image" href="assets/home-headshot-relaxed.jpg" />
-    <link rel="stylesheet" href="styles.css?v=20260531-8" />
+    <script>
+      (function () {
+        try {
+          if (localStorage.getItem("portfolio-theme") === "light") {
+            document.documentElement.setAttribute("data-theme", "light");
+          }
+        } catch (error) {}
+      })();
+    </script>
+    <link rel="stylesheet" href="styles.css?v=20260531-9" />
   </head>
   <body>
     <header class="site-header" aria-label="Primary">
@@ -21,6 +30,15 @@
         <a href="#projects" class="nav-pill">Projects</a>
         <a href="#experience" class="nav-pill">Experience</a>
       </nav>
+      <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch to light mode" aria-pressed="false" data-tooltip="Switch to light mode">
+        <svg class="theme-icon theme-icon-sun" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M12 4V2m0 20v-2m5.66-13.66 1.41-1.41M4.93 19.07l1.41-1.41M20 12h2M2 12h2m14.24 5.66 1.41 1.41M4.93 4.93l1.41 1.41" />
+          <circle cx="12" cy="12" r="4.2" />
+        </svg>
+        <svg class="theme-icon theme-icon-moon" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M20.4 14.3A7.8 7.8 0 0 1 9.7 3.6 8.8 8.8 0 1 0 20.4 14.3Z" />
+        </svg>
+      </button>
     </header>
 
     <main>
@@ -952,6 +970,6 @@
       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 15l-6-6-6 6" /></svg>
     </button>
 
-    <script src="app.js?v=20260531-8"></script>
+    <script src="app.js?v=20260531-9"></script>
   </body>
 </html>

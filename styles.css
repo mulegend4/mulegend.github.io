@@ -25,6 +25,24 @@
   --nav-padding-x: calc(1.12rem - (0.22rem * var(--nav-progress)));
 }
 
+:root[data-theme="light"] {
+  color-scheme: light;
+  --bg: #f7f8fb;
+  --surface: #ffffff;
+  --surface-2: #eef2f7;
+  --border: rgb(15 23 42 / 0.13);
+  --border-strong: rgb(15 23 42 / 0.22);
+  --text: #111827;
+  --muted: #4b5563;
+  --soft: #6b7280;
+  --teal: #0f8f87;
+  --blue: #2563eb;
+  --gold: #9a6a05;
+  --rose: #b83280;
+  --green: #16813a;
+  --shadow: 0 24px 70px rgb(15 23 42 / 0.16);
+}
+
 *,
 *::before,
 *::after {
@@ -131,6 +149,105 @@ summary::-webkit-details-marker {
   padding: 0 0.75rem;
   pointer-events: auto;
   position: relative;
+}
+
+.theme-toggle {
+  align-items: center;
+  background: rgb(255 255 255 / 0.08);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  color: var(--text);
+  cursor: pointer;
+  display: inline-flex;
+  height: 2.85rem;
+  justify-content: center;
+  pointer-events: auto;
+  position: absolute;
+  right: 1.15rem;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: background 0.18s ease, border-color 0.18s ease, color 0.18s ease, transform 0.18s ease;
+  width: 2.85rem;
+}
+
+.theme-toggle:hover,
+.theme-toggle:focus-visible {
+  background: rgb(255 255 255 / 0.14);
+  border-color: var(--border-strong);
+  transform: translateY(-50%) scale(1.05);
+}
+
+.theme-toggle::before,
+.theme-toggle::after {
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+  right: 0;
+  transition: opacity 0.18s ease, transform 0.18s ease, visibility 0.18s ease;
+  visibility: hidden;
+  z-index: 8;
+}
+
+.theme-toggle::before {
+  border-bottom: 0.45rem solid rgb(18 19 26 / 0.96);
+  border-left: 0.45rem solid transparent;
+  border-right: 0.45rem solid transparent;
+  content: "";
+  top: calc(100% + 0.24rem);
+  transform: translate(-0.94rem, -0.25rem);
+}
+
+.theme-toggle::after {
+  background: rgb(18 19 26 / 0.96);
+  border: 1px solid var(--border-strong);
+  border-radius: 8px;
+  box-shadow: 0 16px 40px rgb(0 0 0 / 0.34);
+  color: #f5f7fb;
+  content: attr(data-tooltip);
+  font-size: 0.78rem;
+  font-weight: 700;
+  line-height: 1.35;
+  padding: 0.56rem 0.72rem;
+  text-align: center;
+  top: calc(100% + 0.68rem);
+  transform: translateY(-0.25rem);
+  white-space: nowrap;
+}
+
+.theme-toggle:hover::before,
+.theme-toggle:hover::after,
+.theme-toggle:focus-visible::before,
+.theme-toggle:focus-visible::after {
+  opacity: 1;
+  transform: translateY(0);
+  visibility: visible;
+}
+
+.theme-toggle:hover::before,
+.theme-toggle:focus-visible::before {
+  transform: translate(-0.94rem, 0);
+}
+
+.theme-icon {
+  fill: none;
+  height: 1.25rem;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2;
+  width: 1.25rem;
+}
+
+.theme-icon-moon {
+  display: none;
+}
+
+html[data-theme="light"] .theme-icon-sun {
+  display: none;
+}
+
+html[data-theme="light"] .theme-icon-moon {
+  display: block;
 }
 
 .nav-pill {
@@ -1643,6 +1760,203 @@ body.modal-project-scrolled .modal-back-to-top {
   color: var(--text);
 }
 
+html[data-theme="light"] body {
+  background: linear-gradient(180deg, #f7f8fb, #eef2f7 46%, #f8fafc);
+}
+
+html[data-theme="light"] ::selection {
+  background: rgb(15 143 135 / 0.24);
+  color: #052f2c;
+}
+
+html[data-theme="light"] ::-webkit-scrollbar-track {
+  background: #e8edf5;
+}
+
+html[data-theme="light"] ::-webkit-scrollbar-thumb {
+  background: #b6c0cf;
+}
+
+html[data-theme="light"] .header-glass {
+  background: rgb(255 255 255 / calc(0.58 + (0.28 * var(--nav-progress))));
+  border-bottom-color: rgb(15 23 42 / 0.1);
+  box-shadow: 0 10px 28px rgb(15 23 42 / 0.08);
+}
+
+html[data-theme="light"] .nav-pill:hover,
+html[data-theme="light"] .nav-pill.active,
+html[data-theme="light"] .theme-toggle {
+  background: rgb(15 23 42 / 0.06);
+  border-color: rgb(15 23 42 / 0.1);
+}
+
+html[data-theme="light"] .theme-toggle:hover,
+html[data-theme="light"] .theme-toggle:focus-visible {
+  background: rgb(15 23 42 / 0.1);
+}
+
+html[data-theme="light"] .hero {
+  background:
+    radial-gradient(ellipse 72rem 42rem at 50% 28%, rgb(103 63 166 / 0.22), transparent 68%),
+    radial-gradient(ellipse 42rem 28rem at 18% 12%, rgb(216 93 155 / 0.14), transparent 72%),
+    linear-gradient(180deg, #f9f7ff 0%, #f7f8fb 70%, #f8fafc 100%);
+}
+
+html[data-theme="light"] .hero::before {
+  background:
+    linear-gradient(90deg, rgb(15 23 42 / 0.05) 1px, transparent 1px),
+    linear-gradient(180deg, rgb(15 23 42 / 0.045) 1px, transparent 1px);
+  mask-image: linear-gradient(180deg, rgb(0 0 0 / 0.32), transparent 76%);
+}
+
+html[data-theme="light"] .hero-image-shell {
+  background: #fff;
+  border-color: rgb(15 23 42 / 0.12);
+  box-shadow: 0 0 0 14px rgb(103 63 166 / 0.11), var(--shadow);
+}
+
+html[data-theme="light"] .social-icon,
+html[data-theme="light"] .back-to-top-footer,
+html[data-theme="light"] .back-to-top-float,
+html[data-theme="light"] .modal-back-to-top {
+  background: rgb(255 255 255 / 0.9);
+  color: var(--text);
+}
+
+html[data-theme="light"] .social-icon:hover,
+html[data-theme="light"] .back-to-top-footer:hover,
+html[data-theme="light"] .back-to-top-float:hover,
+html[data-theme="light"] .modal-back-to-top:hover {
+  background: #fff;
+  border-color: var(--border-strong);
+}
+
+html[data-theme="light"] .social-icon::after,
+html[data-theme="light"] .theme-toggle::after {
+  background: rgb(17 24 39 / 0.96);
+  color: #f8fafc;
+}
+
+html[data-theme="light"] .social-icon::before {
+  border-top-color: rgb(17 24 39 / 0.96);
+}
+
+html[data-theme="light"] .theme-toggle::before {
+  border-bottom-color: rgb(17 24 39 / 0.96);
+}
+
+html[data-theme="light"] .scroll-cue,
+html[data-theme="light"] .section-divider {
+  border-color: rgb(15 23 42 / 0.18);
+  color: rgb(15 23 42 / 0.64);
+}
+
+html[data-theme="light"] .section-divider {
+  background: rgb(15 23 42 / 0.18);
+}
+
+html[data-theme="light"] .about-copy,
+html[data-theme="light"] .project-copy p,
+html[data-theme="light"] .experience-item em,
+html[data-theme="light"] .experience-detail ul,
+html[data-theme="light"] .modal-hero p,
+html[data-theme="light"] .modal-section p,
+html[data-theme="light"] .modal-shot p,
+html[data-theme="light"] .skill-proof-list {
+  color: rgb(31 41 55 / 0.82);
+}
+
+html[data-theme="light"] .tool-card,
+html[data-theme="light"] .experience-item,
+html[data-theme="light"] .modal-shot,
+html[data-theme="light"] .modal-demo,
+html[data-theme="light"] .modal-highlight-grid article,
+html[data-theme="light"] .modal-skill-icon {
+  background: linear-gradient(180deg, rgb(255 255 255 / 0.98), rgb(255 255 255 / 0.78));
+  box-shadow: 0 18px 48px rgb(15 23 42 / 0.08);
+}
+
+html[data-theme="light"] .tool-card:hover,
+html[data-theme="light"] .tool-card.skill-active {
+  background: #fff;
+}
+
+html[data-theme="light"] .project-card {
+  background: #fff;
+  box-shadow: 0 20px 60px rgb(15 23 42 / 0.12);
+}
+
+html[data-theme="light"] .project-visual {
+  background: linear-gradient(180deg, rgb(15 23 42 / 0.035), transparent);
+}
+
+html[data-theme="light"] .tech-list li {
+  background: rgb(15 23 42 / 0.08);
+  color: rgb(31 41 55 / 0.86);
+}
+
+html[data-theme="light"] .project-copy .project-note {
+  color: #8a5b00;
+}
+
+html[data-theme="light"] .mock-window,
+html[data-theme="light"] .chat-shell,
+html[data-theme="light"] .pipeline-board,
+html[data-theme="light"] .portal-shell,
+html[data-theme="light"] .modal-feature-visual {
+  background:
+    linear-gradient(180deg, rgb(255 255 255 / 0.98), rgb(241 245 249 / 0.88)),
+    var(--surface);
+  box-shadow: 0 24px 60px rgb(15 23 42 / 0.12);
+}
+
+html[data-theme="light"] .filter-banner {
+  background: linear-gradient(90deg, rgb(15 143 135 / 0.12), rgb(37 99 235 / 0.08));
+  border-color: rgb(15 143 135 / 0.24);
+}
+
+html[data-theme="light"] .filter-banner button {
+  background: var(--text);
+  color: #fff;
+}
+
+html[data-theme="light"] .experience-item summary:hover {
+  background: rgb(15 23 42 / 0.035);
+}
+
+html[data-theme="light"] .project-modal {
+  background:
+    radial-gradient(circle at 0 0, rgb(15 143 135 / 0.14), transparent 23rem),
+    linear-gradient(180deg, #ffffff, #f7f9fc);
+  box-shadow: 0 30px 120px rgb(15 23 42 / 0.26);
+}
+
+html[data-theme="light"] .modal-backdrop {
+  background: rgb(15 23 42 / 0.42);
+}
+
+html[data-theme="light"] .modal-close {
+  background: rgb(15 23 42 / 0.06);
+}
+
+html[data-theme="light"] .modal-close:hover {
+  background: rgb(15 23 42 / 0.1);
+}
+
+html[data-theme="light"] .modal-media-panel > img,
+html[data-theme="light"] .modal-shot img {
+  box-shadow: 0 22px 62px rgb(15 23 42 / 0.12);
+}
+
+html[data-theme="light"] .modal-skill-icon span {
+  color: rgb(31 41 55 / 0.84);
+}
+
+html[data-theme="light"] .modal-callout {
+  background: linear-gradient(90deg, rgb(15 143 135 / 0.1), rgb(37 99 235 / 0.08));
+  color: rgb(31 41 55 / 0.84);
+}
+
 .reveal {
   opacity: 0;
   filter: blur(4px);
@@ -1691,6 +2005,7 @@ body.modal-project-scrolled .modal-back-to-top {
   .tool-card,
   .social-icon,
   .nav-pill,
+  .theme-toggle,
   .experience-item summary svg,
   .modal-back-to-top,
   .skill-logo-stage {
@@ -1720,8 +2035,23 @@ body.modal-project-scrolled .modal-back-to-top {
   .top-nav {
     flex-wrap: wrap;
     height: auto;
-    max-width: 92vw;
+    justify-content: flex-start;
+    margin-left: 0.5rem;
+    margin-right: 4.4rem;
+    max-width: calc(100% - 5rem);
+    overflow-x: auto;
     padding: 0.45rem 0.25rem;
+    scrollbar-width: none;
+  }
+
+  .top-nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  .theme-toggle {
+    height: 2.55rem;
+    right: 0.65rem;
+    width: 2.55rem;
   }
 
   .nav-pill {

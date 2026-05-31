@@ -11,6 +11,7 @@
   var projectButtons = Array.prototype.slice.call(document.querySelectorAll(".project-card[data-project]"));
   var modalContents = Array.prototype.slice.call(document.querySelectorAll("[data-modal-content]"));
   var backToTopButton = document.querySelector(".back-to-top-float");
+  var themeToggle = document.getElementById("theme-toggle");
   var activeProjectTrigger = null;
   var sections = navLinks
     .map(function (link) {
@@ -49,6 +50,32 @@
 
   function clamp(value, min, max) {
     return Math.min(max, Math.max(min, value));
+  }
+
+  function setTheme(theme, persist) {
+    var lightMode = theme === "light";
+    if (lightMode) {
+      document.documentElement.setAttribute("data-theme", "light");
+    } else {
+      document.documentElement.removeAttribute("data-theme");
+    }
+
+    if (themeToggle) {
+      var label = lightMode ? "Switch to dark mode" : "Switch to light mode";
+      themeToggle.setAttribute("aria-label", label);
+      themeToggle.setAttribute("aria-pressed", lightMode ? "true" : "false");
+      themeToggle.setAttribute("data-tooltip", label);
+    }
+
+    if (persist) {
+      try {
+        localStorage.setItem("portfolio-theme", lightMode ? "light" : "dark");
+      } catch (error) {}
+    }
+  }
+
+  function getCurrentTheme() {
+    return document.documentElement.hasAttribute("data-theme") ? "light" : "dark";
   }
 
   function updateScrollChrome() {
@@ -227,6 +254,13 @@
   if (backToTopButton) {
     backToTopButton.addEventListener("click", function () {
       document.getElementById("home").scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+  }
+
+  if (themeToggle) {
+    setTheme(getCurrentTheme(), false);
+    themeToggle.addEventListener("click", function () {
+      setTheme(getCurrentTheme() === "light" ? "dark" : "light", true);
     });
   }
 
