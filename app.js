@@ -11,9 +11,10 @@
   var projectButtons = Array.prototype.slice.call(document.querySelectorAll(".project-card[data-project]"));
   var modalContents = Array.prototype.slice.call(document.querySelectorAll("[data-modal-content]"));
   var backToTopButton = document.querySelector(".back-to-top-float");
+  var homeSection = document.getElementById("home");
+  var homeHintBubble = document.querySelector(".home-hover-zone span");
   var themeToggle = document.getElementById("theme-toggle");
   var welcomeSequence = document.getElementById("welcome-sequence");
-  var portfolioTour = document.getElementById("portfolio-tour");
   var colorSchemeQuery = window.matchMedia ? window.matchMedia("(prefers-color-scheme: dark)") : null;
   var timelineButtons = Array.prototype.slice.call(document.querySelectorAll("[data-experience-target]"));
   var experienceItems = Array.prototype.slice.call(document.querySelectorAll(".experience-item[id]"));
@@ -113,9 +114,6 @@
     if (welcomeSequence) {
       welcomeSequence.setAttribute("aria-hidden", "false");
     }
-    if (portfolioTour) {
-      portfolioTour.setAttribute("aria-hidden", "false");
-    }
 
     document.body.classList.add("welcome-active");
     window.setTimeout(function () {
@@ -123,10 +121,7 @@
       if (welcomeSequence) {
         welcomeSequence.setAttribute("aria-hidden", "true");
       }
-      if (portfolioTour) {
-        portfolioTour.setAttribute("aria-hidden", "true");
-      }
-    }, 7800);
+    }, 4300);
   }
 
   function updateTimelineActive(activeId) {
@@ -172,6 +167,9 @@
     document.documentElement.style.setProperty("--scroll-cue-progress", cueProgress.toFixed(3));
     document.body.classList.toggle("has-scrolled", window.scrollY > 8);
     document.body.classList.toggle("at-page-end", nearBottom);
+    if (window.scrollY > 8) {
+      setHomeHintVisible(false);
+    }
   }
 
   function updateModalBackToTop() {
@@ -179,6 +177,25 @@
     var active = !modal.hidden && modal.scrollTop > 260;
     modal.classList.toggle("modal-scrolled", active);
     document.body.classList.toggle("modal-project-scrolled", active);
+  }
+
+  function setHomeHintVisible(visible) {
+    document.body.classList.toggle("home-lower-hover", visible);
+    if (homeHintBubble) {
+      homeHintBubble.style.opacity = visible ? "1" : "";
+      homeHintBubble.style.transform = visible ? "translateY(0)" : "";
+    }
+  }
+
+  function updateHomeHoverHint(event) {
+    if (!homeSection || window.scrollY > 8) {
+      setHomeHintVisible(false);
+      return;
+    }
+
+    var rect = homeSection.getBoundingClientRect();
+    var hoveringLowerHome = event.clientY >= rect.top + rect.height * 0.5 && event.clientY <= rect.bottom;
+    setHomeHintVisible(hoveringLowerHome);
   }
 
   function applySkillFilter(skill, label) {
@@ -337,6 +354,13 @@
   if (backToTopButton) {
     backToTopButton.addEventListener("click", function () {
       document.getElementById("home").scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+  }
+
+  if (homeSection) {
+    homeSection.addEventListener("mousemove", updateHomeHoverHint);
+    homeSection.addEventListener("mouseleave", function () {
+      setHomeHintVisible(false);
     });
   }
 
