@@ -9,7 +9,7 @@
     />
     <title>Arslan Malek - Power Platform Architect</title>
     <link rel="preload" as="image" href="assets/home-headshot-relaxed.jpg" />
-    <link rel="stylesheet" href="styles.css?v=20260531-6" />
+    <link rel="stylesheet" href="styles.css?v=20260531-7" />
   </head>
   <body>
     <header class="site-header" aria-label="Primary">
@@ -233,7 +233,7 @@
             </div>
           </article>
 
-          <article class="project-card reveal" data-project="copilot-intake" data-skills="copilot-studio power-automate governance-alm" tabindex="0" role="button" aria-label="Open Copilot Studio Intake Agent project details">
+          <article class="project-card reveal" data-project="copilot-intake" data-skills="copilot-studio power-apps power-automate governance-alm" tabindex="0" role="button" aria-label="Open Copilot Studio Intake Agent project details">
             <div class="project-visual project-visual-image">
               <img class="project-shot" src="assets/projects/copilot-studio-intake-realistic.png" alt="Realistic Copilot Studio intake agent builder visual" />
             </div>
@@ -271,7 +271,7 @@
             </div>
           </article>
 
-          <article class="project-card reveal" data-skills="power-automate power-bi governance-alm">
+          <article class="project-card reveal" data-project="rpa-reporting" data-skills="power-automate power-apps power-bi governance-alm" tabindex="0" role="button" aria-label="Open RPA Reporting Automation project details">
             <div class="project-visual visual-rpa" aria-hidden="true">
               <div class="pipeline-board">
                 <div>Legacy App</div>
@@ -286,19 +286,19 @@
             <div class="project-copy">
               <h3>RPA Reporting Automation</h3>
               <ul class="tech-list">
-                <li>Power Automate Desktop</li>
-                <li>Azure Blob</li>
+                <li>Power Automate RPA</li>
+                <li>Cloud Flows</li>
                 <li>Snowflake</li>
                 <li>Power BI</li>
               </ul>
               <p>
-                Automated legacy report extraction and standardized data movement into centralized datasets for refreshable reporting, reducing manual downloads and improving reliability.
+                Automated sensitive health-data extraction from legacy insurance systems into Snowflake and reduced manual claims data entry through Power App, Cloud Flow, and RPA handoffs.
               </p>
-              <p class="project-note">Add next: number of reports, frequency, hours saved, and reporting audience.</p>
+              <p class="project-note">Click to view reporting pipeline, claims-entry automation, and labor savings.</p>
             </div>
           </article>
 
-          <article class="project-card reveal" data-skills="dataverse-dynamics power-apps governance-alm">
+          <article class="project-card reveal" data-project="field-service-portal" data-skills="dataverse-dynamics power-apps governance-alm" tabindex="0" role="button" aria-label="Open Dynamics 365 and Power Pages Field Service Portal project details">
             <div class="project-visual visual-portal" aria-hidden="true">
               <div class="portal-shell">
                 <div class="portal-header"></div>
@@ -320,9 +320,9 @@
                 <li>Web Roles</li>
               </ul>
               <p>
-                Developed a secure portal for field service officers to view, update, and manage assigned records only, using entity permissions, web roles, forms, lists, and controlled data visibility.
+                Built a secure inspection portal where maintenance inspectors logged store-building issues, then admin teams reviewed deficiencies in Dynamics 365 and routed repair work.
               </p>
-              <p class="project-note">Add next: business group, record volume, and any sanitized portal screens.</p>
+              <p class="project-note">Click to view inspection workflow, admin review, and repair request handoff.</p>
             </div>
           </article>
         </div>
@@ -335,97 +335,147 @@
         <div class="experience-list">
           <details class="experience-item reveal">
             <summary>
-              <span>Nov 2023 - Present</span>
-              <span class="experience-logo"><img src="assets/company-logos/intact-insurance.svg" alt="Intact Insurance logo" /></span>
-              <div>
+              <div class="experience-meta">
+                <span class="experience-date">Nov 2023 - Present</span>
+                <span class="experience-logo"><img src="assets/company-logos/intact-insurance.svg" alt="Intact Insurance logo" /></span>
+              </div>
+              <div class="experience-copy">
                 <h3>Power Platform Architect & Consultant</h3>
                 <p>Intact Financial</p>
-                <em>Best known for enterprise Power Apps delivery, Copilot Studio intake automation, and reliable reporting pipelines.</em>
+                <em>Led enterprise automation programs across claims, intake, reporting, and legacy system modernization.</em>
               </div>
               <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6" /></svg>
             </summary>
-            <ul>
-              <li>Developed and deployed 8 enterprise-wide Power Apps, including desk booking, incident request submission, and claims support notes apps.</li>
-              <li>Automated the intake request process with Copilot Studio acting as an intake analyst and request summarizer.</li>
-              <li>Designed 5 Power Automate Desktop RPA solutions to extract legacy reports into Azure Blob Storage and Snowflake.</li>
-              <li>Created Power BI reporting across Snowflake, SQL, and Dataverse while supporting sensitive-data requirements.</li>
-            </ul>
+            <div class="experience-detail">
+              <div class="experience-legend" aria-label="Highlight key">
+                <span><i class="tag-skill"></i>Skill</span>
+                <span><i class="tag-platform"></i>Platform</span>
+                <span><i class="tag-impact"></i>Impact</span>
+                <span><i class="tag-governance"></i>Governance</span>
+              </div>
+              <ul>
+                <li>Developed and deployed <span class="legend-tag tag-impact">8 enterprise Power Apps</span>, including desk booking, incident request submission, and claims support notes apps.</li>
+                <li>Automated intake with <span class="legend-tag tag-skill">Copilot Studio</span> acting as an intake analyst and request summarizer for cleaner triage.</li>
+                <li>Designed <span class="legend-tag tag-impact">5 RPA solutions</span> using <span class="legend-tag tag-skill">Power Automate Desktop</span> to extract legacy reports into <span class="legend-tag tag-platform">Azure Blob Storage</span> and <span class="legend-tag tag-platform">Snowflake</span>.</li>
+                <li>Created <span class="legend-tag tag-skill">Power BI</span> reporting across <span class="legend-tag tag-platform">Snowflake</span>, <span class="legend-tag tag-platform">SQL</span>, and <span class="legend-tag tag-platform">Dataverse</span> while supporting <span class="legend-tag tag-governance">sensitive-data requirements</span>.</li>
+              </ul>
+            </div>
           </details>
 
           <details class="experience-item reveal">
             <summary>
-              <span>Jul 2022 - Oct 2023</span>
-              <span class="experience-logo brand-fill"><img src="assets/company-logos/bmo.png" alt="BMO logo" /></span>
-              <div>
+              <div class="experience-meta">
+                <span class="experience-date">Jul 2022 - Oct 2023</span>
+                <span class="experience-logo brand-fill"><img src="assets/company-logos/bmo.png" alt="BMO logo" /></span>
+              </div>
+              <div class="experience-copy">
                 <h3>Power Platform Architect & Consultant</h3>
                 <p>BMO</p>
-                <em>Best known for AI assistants, HR onboarding agents, and Dynamics/Power Platform solution architecture.</em>
+                <em>Designed HR-focused AI and Power Platform solutions that improved onboarding, service delivery, and enterprise data access.</em>
               </div>
               <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6" /></svg>
             </summary>
-            <ul>
-              <li>Developed custom ChatGPT solutions integrated with Snowflake for enterprise data questions.</li>
-              <li>Created AI agents to support HR teams and new hires with onboarding queries and guidance.</li>
-              <li>Delivered Power Apps, Dynamics 365 customizations, C# plug-ins, custom workflows, business rules, and process flows.</li>
-              <li>Established reusable components and advised stakeholders on governance, security, compliance, and delivery best practices.</li>
-            </ul>
+            <div class="experience-detail">
+              <div class="experience-legend" aria-label="Highlight key">
+                <span><i class="tag-skill"></i>Skill</span>
+                <span><i class="tag-platform"></i>Platform</span>
+                <span><i class="tag-impact"></i>Impact</span>
+                <span><i class="tag-governance"></i>Governance</span>
+              </div>
+              <ul>
+                <li>Developed custom <span class="legend-tag tag-skill">ChatGPT solutions</span> integrated with <span class="legend-tag tag-platform">Snowflake</span> for enterprise data questions.</li>
+                <li>Created <span class="legend-tag tag-skill">AI agents</span> to support <span class="legend-tag tag-impact">HR teams and new hires</span> with onboarding queries and guidance.</li>
+                <li>Delivered <span class="legend-tag tag-skill">Power Apps</span>, <span class="legend-tag tag-skill">Dynamics 365</span> customizations, <span class="legend-tag tag-platform">C# plug-ins</span>, workflows, business rules, and process flows.</li>
+                <li>Established <span class="legend-tag tag-impact">reusable components</span> and advised stakeholders on <span class="legend-tag tag-governance">governance, security, compliance</span>, and delivery best practices.</li>
+              </ul>
+            </div>
           </details>
 
           <details class="experience-item reveal">
             <summary>
-              <span>Nov 2020 - Jun 2022</span>
-              <span class="experience-logo"><img src="assets/company-logos/nestle-canada.jpg" alt="Nestlé logo" /></span>
-              <div>
+              <div class="experience-meta">
+                <span class="experience-date">Nov 2020 - Jun 2022</span>
+                <span class="experience-logo"><img src="assets/company-logos/nestle-canada.jpg" alt="Nestlé logo" /></span>
+              </div>
+              <div class="experience-copy">
                 <h3>Power Platform Architect & Consultant</h3>
                 <p>Nestlé Canada</p>
-                <em>Best known for CoE governance, architecture blueprints, reusable components, and cross-functional app delivery.</em>
+                <em>Built governed Power Platform delivery practices with CoE oversight, solution architecture, and maker enablement.</em>
               </div>
               <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6" /></svg>
             </summary>
-            <ul>
-              <li>Defined and implemented a Power Platform Center of Excellence and governance roadmap.</li>
-              <li>Created solution blueprints, technical documents, security reviews, and compliance-aligned architecture materials.</li>
-              <li>Delivered 16 cross-functional solutions across Power Apps, Power Automate, Power BI, and SharePoint.</li>
-              <li>Supported citizen developers through workshops, best practices, and ongoing governance oversight.</li>
-            </ul>
+            <div class="experience-detail">
+              <div class="experience-legend" aria-label="Highlight key">
+                <span><i class="tag-skill"></i>Skill</span>
+                <span><i class="tag-platform"></i>Platform</span>
+                <span><i class="tag-impact"></i>Impact</span>
+                <span><i class="tag-governance"></i>Governance</span>
+              </div>
+              <ul>
+                <li>Defined and implemented a <span class="legend-tag tag-governance">Power Platform Center of Excellence</span> and governance roadmap.</li>
+                <li>Created <span class="legend-tag tag-governance">solution blueprints</span>, technical documents, security reviews, and compliance-aligned architecture materials.</li>
+                <li>Delivered <span class="legend-tag tag-impact">16 cross-functional solutions</span> across <span class="legend-tag tag-skill">Power Apps</span>, <span class="legend-tag tag-skill">Power Automate</span>, <span class="legend-tag tag-skill">Power BI</span>, and <span class="legend-tag tag-platform">SharePoint</span>.</li>
+                <li>Supported <span class="legend-tag tag-impact">citizen developers</span> through workshops, best practices, and ongoing <span class="legend-tag tag-governance">governance oversight</span>.</li>
+              </ul>
+            </div>
           </details>
 
           <details class="experience-item reveal">
             <summary>
-              <span>Mar 2019 - Oct 2020</span>
-              <span class="experience-logo"><img src="assets/company-logos/loblaw-companies-limited.svg" alt="Loblaw Companies Limited logo" /></span>
-              <div>
+              <div class="experience-meta">
+                <span class="experience-date">Mar 2019 - Oct 2020</span>
+                <span class="experience-logo"><img src="assets/company-logos/loblaw-companies-limited.svg" alt="Loblaw Companies Limited logo" /></span>
+              </div>
+              <div class="experience-copy">
                 <h3>Power Apps Consultant</h3>
                 <p>Loblaw Companies Limited</p>
-                <em>Best known for enterprise-scale Power Platform adoption, secure integrations, and compliance automation.</em>
+                <em>Delivered compliance-focused applications, secure integrations, and adoption support across a large retail enterprise.</em>
               </div>
               <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6" /></svg>
             </summary>
-            <ul>
-              <li>Spearheaded Power Platform adoption across a large enterprise workforce.</li>
-              <li>Built a compliance solution with Power Apps and Power Automate tied to mitigating a potential $10M in penalties.</li>
-              <li>Integrated Salesforce, Jira, SharePoint, Microsoft 365, and legacy systems using APIs, custom connectors, JavaScript, Python, PowerShell, and web services.</li>
-              <li>Designed Dataverse models, security roles, approvals, workflow automation, reporting, and self-service experiences.</li>
-            </ul>
+            <div class="experience-detail">
+              <div class="experience-legend" aria-label="Highlight key">
+                <span><i class="tag-skill"></i>Skill</span>
+                <span><i class="tag-platform"></i>Platform</span>
+                <span><i class="tag-impact"></i>Impact</span>
+                <span><i class="tag-governance"></i>Governance</span>
+              </div>
+              <ul>
+                <li>Spearheaded <span class="legend-tag tag-skill">Power Platform adoption</span> across a large enterprise workforce.</li>
+                <li>Built a compliance solution with <span class="legend-tag tag-skill">Power Apps</span> and <span class="legend-tag tag-skill">Power Automate</span> tied to mitigating a potential <span class="legend-tag tag-impact">$10M in penalties</span>.</li>
+                <li>Integrated <span class="legend-tag tag-platform">Salesforce</span>, <span class="legend-tag tag-platform">Jira</span>, <span class="legend-tag tag-platform">SharePoint</span>, <span class="legend-tag tag-platform">Microsoft 365</span>, and legacy systems using APIs, custom connectors, JavaScript, Python, PowerShell, and web services.</li>
+                <li>Designed <span class="legend-tag tag-platform">Dataverse models</span>, security roles, approvals, workflow automation, reporting, and <span class="legend-tag tag-impact">self-service experiences</span>.</li>
+              </ul>
+            </div>
           </details>
 
           <details class="experience-item reveal">
             <summary>
-              <span>Jan 2018 - Feb 2019</span>
-              <span class="experience-logo brand-fill"><img src="assets/company-logos/shoppers-drug-mart.png" alt="Shoppers Drug Mart logo" /></span>
-              <div>
+              <div class="experience-meta">
+                <span class="experience-date">Jan 2018 - Feb 2019</span>
+                <span class="experience-logo brand-fill"><img src="assets/company-logos/shoppers-drug-mart.png" alt="Shoppers Drug Mart logo" /></span>
+              </div>
+              <div class="experience-copy">
                 <h3>System Analyst</h3>
                 <p>Shoppers Drug Mart</p>
-                <em>Best known for turning reconciliation, reporting, and operational tracking into automated workflows and dashboards.</em>
+                <em>Improved operational reporting, reconciliation, and exception tracking through automation and analytics.</em>
               </div>
               <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6" /></svg>
             </summary>
-            <ul>
-              <li>Automated reconciliation and reporting processes using Power Automate, PowerShell, Excel VBA, Power Query, and advanced Excel.</li>
-              <li>Designed workflow solutions for data collection, approvals, exception tracking, reconciliation follow-ups, and operational task management.</li>
-              <li>Developed Power BI dashboards connected to Access, Excel, and business data sources.</li>
-              <li>Mapped business processes through workflow diagrams and process documentation to identify automation opportunities.</li>
-            </ul>
+            <div class="experience-detail">
+              <div class="experience-legend" aria-label="Highlight key">
+                <span><i class="tag-skill"></i>Skill</span>
+                <span><i class="tag-platform"></i>Platform</span>
+                <span><i class="tag-impact"></i>Impact</span>
+                <span><i class="tag-governance"></i>Governance</span>
+              </div>
+              <ul>
+                <li>Automated reconciliation and reporting processes using <span class="legend-tag tag-skill">Power Automate</span>, <span class="legend-tag tag-platform">PowerShell</span>, <span class="legend-tag tag-platform">Excel VBA</span>, <span class="legend-tag tag-skill">Power Query</span>, and advanced Excel.</li>
+                <li>Designed workflow solutions for <span class="legend-tag tag-impact">data collection</span>, approvals, exception tracking, reconciliation follow-ups, and operational task management.</li>
+                <li>Developed <span class="legend-tag tag-skill">Power BI dashboards</span> connected to <span class="legend-tag tag-platform">Access</span>, Excel, and business data sources.</li>
+                <li>Mapped business processes through <span class="legend-tag tag-governance">workflow diagrams</span> and process documentation to identify automation opportunities.</li>
+              </ul>
+            </div>
           </details>
         </div>
       </section>
@@ -794,15 +844,154 @@
           </ul>
         </div>
 
-        <div class="modal-section">
-          <h3>Reference areas</h3>
-          <div class="source-link-grid">
-            <a href="https://learn.microsoft.com/en-us/power-platform/guidance/coe/core-components" target="_blank" rel="noopener noreferrer">CoE core components</a>
-            <a href="https://learn.microsoft.com/en-us/power-platform/guidance/coe/governance-components" target="_blank" rel="noopener noreferrer">CoE governance components</a>
-            <a href="https://learn.microsoft.com/en-us/power-platform/guidance/coe/business-value-toolkit" target="_blank" rel="noopener noreferrer">Business value toolkit</a>
-            <a href="https://learn.microsoft.com/en-us/power-platform/guidance/coe/power-bi-monitor" target="_blank" rel="noopener noreferrer">CoE Power BI monitor</a>
-            <a href="https://learn.microsoft.com/en-us/power-platform/guidance/adoption/dlp-strategy" target="_blank" rel="noopener noreferrer">Power Platform DLP strategy</a>
+        </div>
+
+        <div class="project-modal-content" data-modal-content="rpa-reporting" hidden>
+        <div class="modal-hero">
+          <div class="modal-media-panel">
+            <div class="modal-feature-visual visual-rpa" aria-hidden="true">
+              <div class="pipeline-board">
+                <div>Legacy Insurance</div>
+                <span></span>
+                <div>Power Automate RPA</div>
+                <span></span>
+                <div>Snowflake</div>
+                <span></span>
+                <div>Power BI</div>
+              </div>
+            </div>
+            <div class="modal-skill-icons" aria-label="Skills used">
+              <span class="modal-skill-icon"><img src="assets/icons/power-platform/Power Platform/PowerAutomate_scalable.svg" alt="" /><span>RPA</span></span>
+              <span class="modal-skill-icon"><img src="assets/icons/power-platform/Power Platform/PowerApps_scalable.svg" alt="" /><span>Power Apps</span></span>
+              <span class="modal-skill-icon"><img src="assets/icons/powerbi.svg" alt="" /><span>Power BI</span></span>
+              <span class="modal-skill-icon"><img src="assets/icons/power-platform/Power Platform/PowerPlatform_scalable.svg" alt="" /><span>Governance</span></span>
+            </div>
           </div>
+          <div>
+            <p class="modal-kicker">Automation case study</p>
+            <h2 id="project-modal-title-rpa">RPA Reporting Automation</h2>
+            <p>
+              A pair of Power Automate RPA solutions for insurance operations: one extracted sensitive health data from legacy insurance systems into Snowflake for Power BI claims reporting, and another copied call-summary data from a Power App into a legacy claims system after agent calls ended.
+            </p>
+            <div class="modal-chip-row">
+              <span>Power Automate RPA</span>
+              <span>Cloud Flows</span>
+              <span>Power Apps</span>
+              <span>Snowflake</span>
+              <span>Power BI</span>
+              <span>Claims Operations</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal-section">
+          <h3>What the automation did</h3>
+          <p>
+            The reporting automation pulled sensitive health data from legacy insurance systems and loaded it into Snowflake, where claims data could be modeled and surfaced through Power BI reports. A second automation supported insurance agents during customer calls: agents captured key information in a Power App, a Cloud Flow ran after the call ended, and Power Automate RPA copied the structured data into the legacy claims system.
+          </p>
+          <div class="modal-highlight-grid">
+            <article>
+              <strong>Weekly reporting savings</strong>
+              <span>Saved a full day of manual labor every week by automating legacy extraction and reporting data movement.</span>
+            </article>
+            <article>
+              <strong>Daily claims-entry savings</strong>
+              <span>Saved about 2 hours daily by reducing repeated manual entry after hundreds of agent calls.</span>
+            </article>
+            <article>
+              <strong>Legacy modernization</strong>
+              <span>Connected older insurance systems to Snowflake and Power BI without forcing a full system replacement.</span>
+            </article>
+            <article>
+              <strong>Sensitive data handling</strong>
+              <span>Supported health and claims data movement with structured automation instead of ad hoc manual handling.</span>
+            </article>
+          </div>
+        </div>
+
+        <div class="modal-section">
+          <h3>Skills highlighted</h3>
+          <ul class="skill-proof-list">
+            <li><strong>Power Automate RPA:</strong> automated repetitive extraction and data-entry steps across legacy insurance systems.</li>
+            <li><strong>Power Apps:</strong> gave agents a structured place to capture call details before automation moved the data downstream.</li>
+            <li><strong>Cloud Flows:</strong> triggered post-call handoffs and moved captured data into the right staging table.</li>
+            <li><strong>Snowflake and Power BI:</strong> centralized claims data for reporting and analytics.</li>
+            <li><strong>Governance:</strong> reduced manual handling of sensitive health and claims data through controlled automation.</li>
+          </ul>
+        </div>
+        </div>
+
+        <div class="project-modal-content" data-modal-content="field-service-portal" hidden>
+        <div class="modal-hero">
+          <div class="modal-media-panel">
+            <div class="modal-feature-visual visual-portal" aria-hidden="true">
+              <div class="portal-shell">
+                <div class="portal-header"></div>
+                <div class="portal-card wide"></div>
+                <div class="portal-grid">
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                </div>
+                <div class="lock-row"><span></span><b>Inspection issue logged</b></div>
+              </div>
+            </div>
+            <div class="modal-skill-icons" aria-label="Skills used">
+              <span class="modal-skill-icon"><img src="assets/icons/power-platform/Power Platform/Dataverse_scalable.svg" alt="" /><span>Dataverse</span></span>
+              <span class="modal-skill-icon"><img src="assets/icons/power-platform/Power Platform/PowerApps_scalable.svg" alt="" /><span>Power Apps</span></span>
+              <span class="modal-skill-icon"><img src="assets/icons/power-platform/Power Platform/PowerPlatform_scalable.svg" alt="" /><span>Governance</span></span>
+            </div>
+          </div>
+          <div>
+            <p class="modal-kicker">Dynamics 365 case study</p>
+            <h2 id="project-modal-title-portal">Dynamics 365 / Power Pages Field Service Portal</h2>
+            <p>
+              A secure inspection portal for maintenance inspectors responsible for store locations. Inspectors used the portal to log building issues, while admin teams reviewed deficiencies in Dynamics 365 and coordinated repair requests to keep locations ready for maintenance inspections.
+            </p>
+            <div class="modal-chip-row">
+              <span>Dynamics 365</span>
+              <span>Power Pages</span>
+              <span>Dataverse Security</span>
+              <span>Inspection Workflow</span>
+              <span>Repair Requests</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal-section">
+          <h3>What the portal supported</h3>
+          <p>
+            Maintenance inspectors used the portal during building inspections at store locations. They could record issues such as outdated logo color needing repainting, improper storage of goods, roof issues, and other inspection-related deficiencies. Admin teams then reviewed the logged issues inside Dynamics 365 and created repair follow-ups so stores could be fixed and pass maintenance inspections.
+          </p>
+          <div class="modal-highlight-grid">
+            <article>
+              <strong>Inspector entry</strong>
+              <span>Maintenance inspectors captured issues directly in the portal while reviewing store conditions.</span>
+            </article>
+            <article>
+              <strong>Admin review</strong>
+              <span>Admin teams reviewed submitted issues in Dynamics 365 and confirmed deficiencies.</span>
+            </article>
+            <article>
+              <strong>Repair follow-up</strong>
+              <span>Deficiencies were converted into repair requests so stores could be brought back into inspection-ready condition.</span>
+            </article>
+            <article>
+              <strong>Controlled access</strong>
+              <span>Portal access, record visibility, and data updates were governed through Dataverse security and web roles.</span>
+            </article>
+          </div>
+        </div>
+
+        <div class="modal-section">
+          <h3>Skills highlighted</h3>
+          <ul class="skill-proof-list">
+            <li><strong>Power Pages:</strong> built the external-facing portal experience for maintenance inspectors.</li>
+            <li><strong>Dynamics 365:</strong> supported admin review, deficiency management, and operational follow-up.</li>
+            <li><strong>Dataverse:</strong> structured inspection issue data, relationships, security roles, and controlled record access.</li>
+            <li><strong>Business process design:</strong> translated inspection findings into a repair-request workflow.</li>
+            <li><strong>Governance:</strong> protected building and store inspection data with role-aware access and controlled updates.</li>
+          </ul>
         </div>
         </div>
       </section>
@@ -840,6 +1029,6 @@
       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 15l-6-6-6 6" /></svg>
     </button>
 
-    <script src="app.js?v=20260531-6"></script>
+    <script src="app.js?v=20260531-7"></script>
   </body>
 </html>
