@@ -160,9 +160,8 @@ main {
 .hero {
   align-items: center;
   background:
-    radial-gradient(ellipse 56rem 38rem at -14rem 4rem, rgb(60 44 90 / 0.86), transparent 70%),
-    radial-gradient(ellipse 42rem 31rem at calc(100% - 8rem) -8rem, rgb(119 57 102 / 0.62), transparent 72%),
-    linear-gradient(180deg, rgb(5 5 6 / 0), rgb(5 5 6 / 0.82) 88%, rgb(5 5 6));
+    radial-gradient(ellipse 42rem 26rem at 50% -18rem, rgb(60 44 90 / 0.22), transparent 76%),
+    linear-gradient(180deg, #050506, #050506 76%, #060607);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -178,8 +177,8 @@ main {
 
 .hero::before {
   background:
-    linear-gradient(90deg, rgb(255 255 255 / 0.04) 1px, transparent 1px),
-    linear-gradient(180deg, rgb(255 255 255 / 0.035) 1px, transparent 1px);
+    linear-gradient(90deg, rgb(255 255 255 / 0.018) 1px, transparent 1px),
+    linear-gradient(180deg, rgb(255 255 255 / 0.016) 1px, transparent 1px);
   background-size: 4.5rem 4.5rem;
   content: "";
   inset: 0;
@@ -332,6 +331,25 @@ main {
 .projects,
 .experience {
   padding: 0 0 8rem;
+  position: relative;
+  isolation: isolate;
+}
+
+.about::before,
+.skills::before,
+.projects::before,
+.experience::before {
+  background-image:
+    url("data:image/svg+xml,%3Csvg width='96' height='84' viewBox='0 0 96 84' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23ffffff' stroke-opacity='0.055' stroke-width='1'%3E%3Cpath d='M24 1 47 14v27L24 54 1 41V14L24 1Z'/%3E%3Cpath d='M72 1 95 14v27L72 54 49 41V14L72 1Z'/%3E%3Cpath d='M48 30 71 43v27L48 83 25 70V43L48 30Z'/%3E%3C/g%3E%3C/svg%3E"),
+    radial-gradient(circle at 50% 0, rgb(255 255 255 / 0.035), transparent 24rem);
+  background-position: center top, center top;
+  background-size: 96px 84px, 100% 100%;
+  content: "";
+  inset: -2.4rem calc(50% - 50vw) 0;
+  mask-image: linear-gradient(180deg, transparent, rgb(0 0 0 / 0.78) 12%, rgb(0 0 0 / 0.62) 78%, transparent);
+  pointer-events: none;
+  position: absolute;
+  z-index: -1;
 }
 
 .section-kicker {
@@ -1306,6 +1324,20 @@ main {
 
   main {
     padding: 0 1rem;
+  }
+
+  .hero {
+    background:
+      radial-gradient(ellipse 56rem 38rem at -14rem 4rem, rgb(60 44 90 / 0.78), transparent 70%),
+      radial-gradient(ellipse 42rem 31rem at calc(100% - 8rem) -8rem, rgb(119 57 102 / 0.56), transparent 72%),
+      linear-gradient(180deg, rgb(5 5 6 / 0), rgb(5 5 6 / 0.82) 88%, rgb(5 5 6));
+  }
+
+  .hero::before {
+    background:
+      linear-gradient(90deg, rgb(255 255 255 / 0.04) 1px, transparent 1px),
+      linear-gradient(180deg, rgb(255 255 255 / 0.035) 1px, transparent 1px);
+    background-size: 4.5rem 4.5rem;
   }
 
   .hero-image-shell {
