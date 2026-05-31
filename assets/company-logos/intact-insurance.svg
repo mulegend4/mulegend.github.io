@@ -1,7 +1,10 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 330 120" role="img" aria-label="Intact Insurance">
-  <rect width="330" height="120" rx="8" fill="#fff"/>
-  <path fill="none" stroke="#d61f34" stroke-width="10" d="M58 20H26v80h32M272 20h32v80h-32"/>
-  <circle cx="122" cy="41" r="7" fill="#000"/>
-  <text x="70" y="76" fill="#000" font-family="Georgia, 'Times New Roman', serif" font-size="62" font-weight="600">intact</text>
-  <text x="88" y="102" fill="#d61f34" font-family="Arial, sans-serif" font-size="17" font-weight="800" letter-spacing="7">INSURANCE</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 512" role="img" aria-label="Intact Insurance">
+  <rect width="1024" height="512" fill="#fff"/>
+  <g transform="translate(92 112)">
+    <path d="M94 0H0v288h94v-42H42V42h52V0Z" fill="#df0035"/>
+    <path d="M746 0h94v288h-94v-42h52V42h-52V0Z" fill="#df0035"/>
+    <circle cx="169" cy="99" r="25" fill="#000"/>
+    <text x="118" y="201" fill="#000" font-family="Georgia, 'Times New Roman', serif" font-size="178" font-weight="500">intact</text>
+    <text x="154" y="287" fill="#df0035" font-family="Arial, Helvetica, sans-serif" font-size="47" font-weight="800" letter-spacing="24">INSURANCE</text>
+  </g>
 </svg>

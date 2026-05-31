@@ -14,7 +14,6 @@
   var homeSection = document.getElementById("home");
   var homeHintBubble = document.querySelector(".home-hover-zone span");
   var themeToggle = document.getElementById("theme-toggle");
-  var welcomeSequence = document.getElementById("welcome-sequence");
   var colorSchemeQuery = window.matchMedia ? window.matchMedia("(prefers-color-scheme: dark)") : null;
   var timelineButtons = Array.prototype.slice.call(document.querySelectorAll("[data-experience-target]"));
   var experienceItems = Array.prototype.slice.call(document.querySelectorAll(".experience-item[id]"));
@@ -107,23 +106,6 @@
     }
   }
 
-  function runWelcomeSequence() {
-    var reducedMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (reducedMotion || window.location.hash && window.location.hash !== "#home") return;
-
-    if (welcomeSequence) {
-      welcomeSequence.setAttribute("aria-hidden", "false");
-    }
-
-    document.body.classList.add("welcome-active");
-    window.setTimeout(function () {
-      document.body.classList.remove("welcome-active");
-      if (welcomeSequence) {
-        welcomeSequence.setAttribute("aria-hidden", "true");
-      }
-    }, 4300);
-  }
-
   function updateTimelineActive(activeId) {
     timelineButtons.forEach(function (button) {
       button.classList.toggle("timeline-active", button.getAttribute("data-experience-target") === activeId);
@@ -194,7 +176,7 @@
     }
 
     var rect = homeSection.getBoundingClientRect();
-    var hoveringLowerHome = event.clientY >= rect.top + rect.height * 0.5 && event.clientY <= rect.bottom;
+    var hoveringLowerHome = event.clientY >= rect.top + rect.height * 0.75 && event.clientY <= rect.bottom;
     setHomeHintVisible(hoveringLowerHome);
   }
 
@@ -407,8 +389,16 @@
     item.addEventListener("toggle", function () {
       if (item.open) {
         updateTimelineActive(item.id);
-      } else if (!experienceItems.some(function (candidate) { return candidate.open; })) {
-        updateTimelineActive("");
+      } else {
+        var activeTimeline = timelineButtons.find(function (button) {
+          return button.classList.contains("timeline-active");
+        });
+        var activeId = activeTimeline ? activeTimeline.getAttribute("data-experience-target") : "";
+        if (activeId === item.id) {
+          var openItem = experienceItems.find(function (candidate) { return candidate.open; });
+          updateTimelineActive(openItem ? openItem.id : "");
+          updateTimelineRelated("");
+        }
       }
     });
   });
@@ -495,7 +485,6 @@
 
   updateActiveFromScroll();
   updateScrollChrome();
-  runWelcomeSequence();
   window.addEventListener("resize", updateScrollChrome);
   window.addEventListener("load", updateScrollChrome);
 })();
