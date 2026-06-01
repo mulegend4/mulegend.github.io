@@ -1,5 +1,5 @@
 (function () {
-  var navLinks = Array.prototype.slice.call(document.querySelectorAll(".nav-pill"));
+  var navLinks = Array.prototype.slice.call(document.querySelectorAll(".nav-pill, .mobile-nav-link"));
   var skillButtons = Array.prototype.slice.call(document.querySelectorAll("[data-skill]"));
   var projectCards = Array.prototype.slice.call(document.querySelectorAll(".project-card[data-skills]"));
   var filterBanner = document.getElementById("project-filter-banner");
@@ -14,6 +14,11 @@
   var homeSection = document.getElementById("home");
   var homeHintBubble = document.querySelector(".home-hover-zone span");
   var themeToggle = document.getElementById("theme-toggle");
+  var mobileThemeToggle = document.getElementById("mobile-theme-toggle");
+  var themeToggles = [themeToggle, mobileThemeToggle].filter(Boolean);
+  var mobileMenuToggle = document.getElementById("mobile-menu-toggle");
+  var mobileNavPanel = document.getElementById("mobile-nav-panel");
+  var mobileNavBackdrop = document.getElementById("mobile-nav-backdrop");
   var colorSchemeQuery = window.matchMedia ? window.matchMedia("(prefers-color-scheme: dark)") : null;
   var timelineButtons = Array.prototype.slice.call(document.querySelectorAll("[data-experience-target]"));
   var experienceItems = Array.prototype.slice.call(document.querySelectorAll(".experience-item[id]"));
@@ -82,12 +87,17 @@
       document.documentElement.removeAttribute("data-theme");
     }
 
-    if (themeToggle) {
+    themeToggles.forEach(function (toggle) {
       var label = lightMode ? "Switch to dark mode" : "Switch to light mode";
-      themeToggle.setAttribute("aria-label", label);
-      themeToggle.setAttribute("aria-pressed", lightMode ? "true" : "false");
-      themeToggle.setAttribute("data-tooltip", label);
-    }
+      toggle.setAttribute("aria-label", label);
+      toggle.setAttribute("aria-pressed", lightMode ? "true" : "false");
+      toggle.setAttribute("data-tooltip", label);
+
+      var visibleLabel = toggle.querySelector("span");
+      if (visibleLabel) {
+        visibleLabel.textContent = label;
+      }
+    });
 
     if (persist) {
       try {
@@ -104,6 +114,25 @@
     if (!getStoredTheme()) {
       setTheme(getSystemTheme(), false);
     }
+  }
+
+  function setMobileNavOpen(open) {
+    document.documentElement.classList.toggle("mobile-nav-open", open);
+    document.body.classList.toggle("mobile-nav-open", open);
+    if (mobileMenuToggle) {
+      mobileMenuToggle.setAttribute("aria-expanded", open ? "true" : "false");
+      mobileMenuToggle.setAttribute("aria-label", open ? "Close navigation menu" : "Open navigation menu");
+    }
+    if (mobileNavPanel) {
+      mobileNavPanel.setAttribute("aria-hidden", open ? "false" : "true");
+    }
+  }
+
+  function canShowHomeHoverHint() {
+    if (window.innerWidth <= 920) {
+      return false;
+    }
+    return !window.matchMedia || window.matchMedia("(hover: hover) and (pointer: fine)").matches;
   }
 
   function updateTimelineActive(activeId) {
@@ -170,7 +199,7 @@
   }
 
   function updateHomeHoverHint(event) {
-    if (!homeSection || window.scrollY > 8) {
+    if (!homeSection || window.scrollY > 8 || !canShowHomeHoverHint()) {
       setHomeHintVisible(false);
       return;
     }
@@ -288,6 +317,7 @@
     link.addEventListener("click", function () {
       var id = link.getAttribute("href").slice(1);
       setActive(id);
+      setMobileNavOpen(false);
       window.setTimeout(updateActiveFromScroll, 650);
     });
   });
@@ -346,10 +376,24 @@
     });
   }
 
-  if (themeToggle) {
+  if (themeToggles.length) {
     setTheme(getPreferredTheme(), false);
-    themeToggle.addEventListener("click", function () {
-      setTheme(getCurrentTheme() === "light" ? "dark" : "light", true);
+    themeToggles.forEach(function (toggle) {
+      toggle.addEventListener("click", function () {
+        setTheme(getCurrentTheme() === "light" ? "dark" : "light", true);
+      });
+    });
+  }
+
+  if (mobileMenuToggle) {
+    mobileMenuToggle.addEventListener("click", function () {
+      setMobileNavOpen(!document.body.classList.contains("mobile-nav-open"));
+    });
+  }
+
+  if (mobileNavBackdrop) {
+    mobileNavBackdrop.addEventListener("click", function () {
+      setMobileNavOpen(false);
     });
   }
 
@@ -412,6 +456,12 @@
   document.addEventListener("keydown", function (event) {
     if (event.key === "Escape" && modal && !modal.hidden) {
       closeProjectModal();
+    }
+    if (event.key === "Escape" && document.body.classList.contains("mobile-nav-open")) {
+      setMobileNavOpen(false);
+      if (mobileMenuToggle) {
+        mobileMenuToggle.focus();
+      }
     }
   });
 
@@ -485,6 +535,11 @@
 
   updateActiveFromScroll();
   updateScrollChrome();
-  window.addEventListener("resize", updateScrollChrome);
+  window.addEventListener("resize", function () {
+    updateScrollChrome();
+    if (window.innerWidth > 920) {
+      setMobileNavOpen(false);
+    }
+  });
   window.addEventListener("load", updateScrollChrome);
 })();

@@ -29,11 +29,16 @@
         }
       })();
     </script>
-    <link rel="stylesheet" href="styles.css?v=20260531-16" />
+    <link rel="stylesheet" href="styles.css?v=20260531-17" />
   </head>
   <body>
     <header class="site-header" aria-label="Primary">
       <div class="header-glass"></div>
+      <button class="mobile-menu-toggle" id="mobile-menu-toggle" type="button" aria-label="Open navigation menu" aria-controls="mobile-nav-panel" aria-expanded="false">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M4 7h16M4 12h16M4 17h16" />
+        </svg>
+      </button>
       <nav class="top-nav" aria-label="Portfolio navigation">
         <a href="#home" class="nav-pill active">Home</a>
         <a href="#about" class="nav-pill">About</a>
@@ -50,6 +55,27 @@
           <path d="M20.4 14.3A7.8 7.8 0 0 1 9.7 3.6 8.8 8.8 0 1 0 20.4 14.3Z" />
         </svg>
       </button>
+      <div class="mobile-nav-backdrop" id="mobile-nav-backdrop" aria-hidden="true"></div>
+      <aside class="mobile-nav-panel" id="mobile-nav-panel" aria-label="Mobile navigation" aria-hidden="true">
+        <div class="mobile-nav-title">Arslan Malek</div>
+        <nav class="mobile-nav-links" aria-label="Mobile portfolio navigation">
+          <a href="#home" class="mobile-nav-link active">Home</a>
+          <a href="#about" class="mobile-nav-link">About</a>
+          <a href="#skills" class="mobile-nav-link">Skills</a>
+          <a href="#projects" class="mobile-nav-link">Projects</a>
+          <a href="#experience" class="mobile-nav-link">Experience</a>
+        </nav>
+        <button class="mobile-theme-toggle" id="mobile-theme-toggle" type="button" aria-label="Switch to light mode" aria-pressed="false">
+          <span>Theme</span>
+          <svg class="theme-icon theme-icon-sun" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 4V2m0 20v-2m5.66-13.66 1.41-1.41M4.93 19.07l1.41-1.41M20 12h2M2 12h2m14.24 5.66 1.41 1.41M4.93 4.93l1.41 1.41" />
+            <circle cx="12" cy="12" r="4.2" />
+          </svg>
+          <svg class="theme-icon theme-icon-moon" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M20.4 14.3A7.8 7.8 0 0 1 9.7 3.6 8.8 8.8 0 1 0 20.4 14.3Z" />
+          </svg>
+        </button>
+      </aside>
     </header>
 
     <main>
@@ -81,7 +107,7 @@
           </a>
         </div>
         <div class="home-hover-zone" aria-hidden="true">
-          <span>Scroll to explore the projects, skills, and experience behind the work.</span>
+          <span>Scroll to learn more about me and my work.</span>
         </div>
         <a class="scroll-cue" href="#about" aria-label="Scroll to about section">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" /></svg>
@@ -392,7 +418,7 @@
             <summary>
               <div class="experience-meta">
                 <span class="experience-date"><span>Nov 2023</span><span>Present</span></span>
-                <span class="experience-logo logo-wide"><img src="assets/company-logos/intact-insurance.png?v=20260531-16" alt="Intact Insurance logo" /></span>
+                <span class="experience-logo logo-wide"><img src="assets/company-logos/intact-insurance.png?v=20260531-17" alt="Intact Insurance logo" /></span>
               </div>
               <div class="experience-copy">
                 <h3>Power Platform Architect & Consultant</h3>
@@ -1007,6 +1033,6 @@
       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 15l-6-6-6 6" /></svg>
     </button>
 
-    <script src="app.js?v=20260531-16"></script>
+    <script src="app.js?v=20260531-17"></script>
   </body>
 </html>
