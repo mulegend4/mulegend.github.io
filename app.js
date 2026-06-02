@@ -68,12 +68,11 @@
     if (Number.isNaN(startDate.getTime())) return;
 
     var years = Math.max(0, (today.getTime() - startDate.getTime()) / (365.2425 * 24 * 60 * 60 * 1000));
-    var preciseYears = years.toFixed(1);
     var wholeYears = Math.max(1, Math.ceil(years));
 
     experienceTotalYears.textContent = wholeYears;
-    experienceTotal.setAttribute("data-tooltip", "Combined " + preciseYears + " years of experience since Jan 2018.");
-    experienceTotal.setAttribute("aria-label", wholeYears + " years total experience. Combined " + preciseYears + " years of experience since January 2018.");
+    experienceTotal.setAttribute("data-tooltip", "Combined " + wholeYears + " years of experience since 2018.");
+    experienceTotal.setAttribute("aria-label", wholeYears + " years total experience. Combined " + wholeYears + " years of experience since 2018.");
   }
 
   function setActive(id) {
