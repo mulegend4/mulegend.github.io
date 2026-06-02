@@ -2544,9 +2544,35 @@ body.modal-project-scrolled .modal-back-to-top {
   width: 100%;
 }
 
+.phone-device-flat {
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  max-width: 13.6rem;
+  padding: 0;
+  width: min(66%, 13.6rem);
+}
+
+.phone-device-flat .phone-speaker {
+  display: none;
+}
+
+.phone-device-flat img {
+  border: 1px solid rgb(255 255 255 / 0.18);
+  border-radius: 1.5rem;
+  box-shadow: 0 22px 58px rgb(0 0 0 / 0.3);
+  max-height: 24rem;
+}
+
 .phone-device-compact {
   max-width: 12rem;
   width: 100%;
+}
+
+.phone-device-flat.phone-device-compact {
+  max-width: 11.4rem;
+  width: min(100%, 11.4rem);
 }
 
 .phone-device-compact img {
@@ -2922,6 +2948,11 @@ html[data-theme="light"] .phone-showcase {
 html[data-theme="light"] .phone-device {
   background: #172033;
   box-shadow: 0 24px 54px rgb(15 23 42 / 0.18);
+}
+
+html[data-theme="light"] .phone-device-flat {
+  background: transparent;
+  box-shadow: none;
 }
 
 html[data-theme="light"] .field-interaction-preview {
