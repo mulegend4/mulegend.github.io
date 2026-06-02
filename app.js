@@ -2,6 +2,7 @@
   var navLinks = Array.prototype.slice.call(document.querySelectorAll(".nav-pill, .mobile-nav-link"));
   var skillButtons = Array.prototype.slice.call(document.querySelectorAll("[data-skill]"));
   var projectCards = Array.prototype.slice.call(document.querySelectorAll(".project-card[data-skills]"));
+  var companyFilterButtons = Array.prototype.slice.call(document.querySelectorAll("[data-company-filter]"));
   var filterBanner = document.getElementById("project-filter-banner");
   var filterLabel = document.getElementById("project-filter-label");
   var clearFilterButton = document.getElementById("clear-project-filter");
@@ -241,9 +242,37 @@
     skillButtons.forEach(function (button) {
       button.classList.toggle("skill-active", button.getAttribute("data-skill") === skill);
     });
+    companyFilterButtons.forEach(function (button) {
+      button.classList.remove("company-active");
+    });
 
     if (filterBanner && filterLabel) {
       filterLabel.textContent = label;
+      filterBanner.hidden = false;
+    }
+
+    document.getElementById("projects").scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+
+  function applyCompanyFilter(company, label) {
+    var visibleCount = 0;
+
+    projectCards.forEach(function (card) {
+      var companies = (card.getAttribute("data-company") || "").split(/\s+/);
+      var visible = companies.indexOf(company) !== -1;
+      card.classList.toggle("filtered-out", !visible);
+      if (visible) visibleCount += 1;
+    });
+
+    skillButtons.forEach(function (button) {
+      button.classList.remove("skill-active");
+    });
+    companyFilterButtons.forEach(function (button) {
+      button.classList.toggle("company-active", button.getAttribute("data-company-filter") === company);
+    });
+
+    if (filterBanner && filterLabel) {
+      filterLabel.textContent = visibleCount ? label : label + " (no projects added yet)";
       filterBanner.hidden = false;
     }
 
@@ -256,6 +285,9 @@
     });
     skillButtons.forEach(function (button) {
       button.classList.remove("skill-active");
+    });
+    companyFilterButtons.forEach(function (button) {
+      button.classList.remove("company-active");
     });
     if (filterBanner) {
       filterBanner.hidden = true;
@@ -472,6 +504,14 @@
   timelineButtons.forEach(function (button) {
     button.addEventListener("click", function () {
       openExperienceFromTimeline(button.getAttribute("data-experience-target"));
+    });
+  });
+
+  companyFilterButtons.forEach(function (button) {
+    button.addEventListener("click", function (event) {
+      event.preventDefault();
+      event.stopPropagation();
+      applyCompanyFilter(button.getAttribute("data-company-filter"), button.getAttribute("data-company-label") || "Company");
     });
   });
 

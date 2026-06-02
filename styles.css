@@ -1050,6 +1050,13 @@ body.has-scrolled .home-hover-zone {
   aspect-ratio: 16 / 10;
 }
 
+.project-visual-image .project-shot.project-shot-contain {
+  aspect-ratio: auto;
+  max-height: 14rem;
+  object-fit: contain;
+  width: auto;
+}
+
 .mock-window,
 .chat-shell,
 .pipeline-board,
@@ -1684,7 +1691,9 @@ body.has-scrolled .home-hover-zone {
 
 .experience-detail {
   border-top: 1px solid var(--border);
+  min-height: 7.1rem;
   padding: 1.05rem 1.45rem 1.3rem 10.85rem;
+  position: relative;
 }
 
 .experience-detail ul {
@@ -1704,6 +1713,46 @@ body.has-scrolled .home-hover-zone {
 .experience-detail strong {
   color: var(--text);
   font-weight: 850;
+}
+
+.experience-project-filter {
+  align-items: center;
+  background: rgb(255 255 255 / 0.055);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  bottom: 1.05rem;
+  color: var(--muted);
+  cursor: pointer;
+  display: inline-flex;
+  font-size: 0.72rem;
+  font-weight: 850;
+  gap: 0.45rem;
+  left: 1.45rem;
+  max-width: 8.8rem;
+  min-height: 2.2rem;
+  padding: 0.42rem 0.66rem;
+  position: absolute;
+  text-align: left;
+  transition: background 0.18s ease, border-color 0.18s ease, color 0.18s ease, transform 0.18s ease;
+}
+
+.experience-project-filter::before {
+  background: var(--teal);
+  border-radius: 999px;
+  content: "";
+  flex: 0 0 auto;
+  height: 0.42rem;
+  opacity: 0.72;
+  width: 0.42rem;
+}
+
+.experience-project-filter:hover,
+.experience-project-filter:focus-visible,
+.experience-project-filter.company-active {
+  background: rgb(53 208 196 / 0.1);
+  border-color: rgb(53 208 196 / 0.34);
+  color: var(--text);
+  transform: translateY(-1px);
 }
 
 .site-footer {
@@ -2309,7 +2358,7 @@ body.modal-project-scrolled .modal-back-to-top {
   margin-top: 0;
   max-width: calc(100% - 5.8rem);
   position: absolute;
-  top: 1rem;
+  top: 0.58rem;
   z-index: 2;
 }
 
@@ -2350,6 +2399,81 @@ body.modal-project-scrolled .modal-back-to-top {
   font-size: 0.86rem;
   font-weight: 900;
   line-height: 1.15;
+}
+
+.phone-showcase {
+  align-items: center;
+  background:
+    radial-gradient(circle at 50% 18%, rgb(53 208 196 / 0.18), transparent 16rem),
+    linear-gradient(180deg, rgb(255 255 255 / 0.08), rgb(255 255 255 / 0.035));
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  box-shadow: 0 20px 70px rgb(0 0 0 / 0.32);
+  display: flex;
+  justify-content: center;
+  min-height: 25rem;
+  padding: 1.1rem;
+}
+
+.phone-device {
+  background: #10131d;
+  border: 1px solid rgb(255 255 255 / 0.16);
+  border-radius: 2rem;
+  box-shadow: 0 28px 70px rgb(0 0 0 / 0.42);
+  display: grid;
+  justify-items: center;
+  max-width: 16rem;
+  overflow: hidden;
+  padding: 0.7rem 0.55rem 0.9rem;
+  position: relative;
+  width: min(72%, 16rem);
+}
+
+.phone-speaker {
+  background: rgb(255 255 255 / 0.22);
+  border-radius: 999px;
+  height: 0.3rem;
+  margin: 0.18rem 0 0.55rem;
+  width: 3.4rem;
+}
+
+.phone-device img {
+  background: #fff;
+  border-radius: 1.35rem;
+  display: block;
+  height: auto;
+  max-height: 25rem;
+  object-fit: contain;
+  width: 100%;
+}
+
+.phone-device-compact {
+  max-width: 12rem;
+  width: 100%;
+}
+
+.phone-device-compact img {
+  max-height: 20rem;
+}
+
+.field-interaction-preview {
+  align-items: start;
+  background:
+    radial-gradient(circle at 12% 0, rgb(53 208 196 / 0.12), transparent 18rem),
+    rgb(255 255 255 / 0.035);
+  display: grid;
+  gap: 0.9rem;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  padding: 1rem;
+}
+
+.field-interaction-preview > img {
+  align-self: stretch;
+  box-shadow: 0 20px 52px rgb(0 0 0 / 0.28);
+  height: auto;
+  max-height: 22rem;
+  object-fit: contain;
+  width: 100%;
 }
 
 .modal-section {
@@ -2630,6 +2754,20 @@ html[data-theme="light"] .project-company-logo {
   border-color: rgb(15 23 42 / 0.1);
 }
 
+html[data-theme="light"] .experience-project-filter {
+  background: rgb(15 23 42 / 0.045);
+  border-color: rgb(15 23 42 / 0.11);
+  color: rgb(31 41 55 / 0.7);
+}
+
+html[data-theme="light"] .experience-project-filter:hover,
+html[data-theme="light"] .experience-project-filter:focus-visible,
+html[data-theme="light"] .experience-project-filter.company-active {
+  background: rgb(15 143 135 / 0.09);
+  border-color: rgb(15 143 135 / 0.24);
+  color: #0f172a;
+}
+
 html[data-theme="light"] .tool-card:hover,
 html[data-theme="light"] .tool-card.skill-active {
   background: #fff;
@@ -2665,11 +2803,23 @@ html[data-theme="light"] .mock-window,
 html[data-theme="light"] .chat-shell,
 html[data-theme="light"] .pipeline-board,
 html[data-theme="light"] .portal-shell,
-html[data-theme="light"] .modal-feature-visual {
+html[data-theme="light"] .modal-feature-visual,
+html[data-theme="light"] .phone-showcase {
   background:
     linear-gradient(180deg, rgb(255 255 255 / 0.98), rgb(241 245 249 / 0.88)),
     var(--surface);
   box-shadow: 0 24px 60px rgb(15 23 42 / 0.12);
+}
+
+html[data-theme="light"] .phone-device {
+  background: #172033;
+  box-shadow: 0 24px 54px rgb(15 23 42 / 0.18);
+}
+
+html[data-theme="light"] .field-interaction-preview {
+  background:
+    radial-gradient(circle at 12% 0, rgb(15 143 135 / 0.08), transparent 18rem),
+    rgb(15 23 42 / 0.025);
 }
 
 html[data-theme="light"] .pipeline-board div {
@@ -3172,6 +3322,13 @@ html[data-theme="light"] .modal-callout {
     padding: 1rem 1rem 1.25rem;
   }
 
+  .experience-project-filter {
+    left: auto;
+    margin-top: 1rem;
+    max-width: 100%;
+    position: static;
+  }
+
   .modal-backdrop {
     padding: 0;
   }
@@ -3215,6 +3372,19 @@ html[data-theme="light"] .modal-callout {
   }
 
   .modal-skill-icons {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .phone-showcase {
+    min-height: 20rem;
+  }
+
+  .phone-device {
+    max-width: 13.5rem;
+    width: min(76%, 13.5rem);
+  }
+
+  .field-interaction-preview {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
@@ -3275,6 +3445,10 @@ html[data-theme="light"] .modal-callout {
   }
 
   .modal-skill-icons {
+    grid-template-columns: 1fr;
+  }
+
+  .field-interaction-preview {
     grid-template-columns: 1fr;
   }
 
