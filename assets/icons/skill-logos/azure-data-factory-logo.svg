@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-labelledby="title">
+  <title id="title">Azure Data Factory logo</title>
+  <defs>
+    <linearGradient id="adf" x1="32" y1="32" x2="205" y2="226" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#36d7ff"/>
+      <stop offset=".38" stop-color="#1389df"/>
+      <stop offset="1" stop-color="#0067c9"/>
+    </linearGradient>
+  </defs>
+  <path fill="url(#adf)" d="M37 66c0-20 39-37 87-37s87 17 87 37v166H37V66Z"/>
+  <ellipse cx="124" cy="66" rx="87" ry="37" fill="#53e4ff"/>
+  <ellipse cx="124" cy="67" rx="62" ry="20" fill="#0067c9" opacity=".95"/>
+  <path fill="#fff" d="M117 111h35v48l47-48h29v121H37v-58h80v-63Z"/>
+  <path fill="url(#adf)" d="M112 103h41v51l51-51h29v129H37v-64h75v-65Z"/>
+  <rect x="73" y="179" width="22" height="22" fill="#fff"/>
+  <rect x="121" y="179" width="22" height="22" fill="#fff"/>
+  <rect x="169" y="179" width="22" height="22" fill="#fff"/>
+</svg>

@@ -747,6 +747,25 @@ body.has-scrolled .home-hover-zone {
   width: 38px;
 }
 
+.skill-motion-icon img {
+  display: block;
+  height: 44px;
+  max-height: 44px;
+  max-width: 44px;
+  object-fit: contain;
+  width: 44px;
+}
+
+.skill-motion-icon.motion-report img {
+  border: 1px solid rgb(15 23 42 / 0.12);
+  border-radius: 5px;
+  height: 40px;
+  max-height: 40px;
+  max-width: 56px;
+  object-fit: cover;
+  width: 56px;
+}
+
 .tool-card:hover .skill-logo-stage,
 .tool-card:focus-visible .skill-logo-stage {
   box-shadow: 0 18px 42px rgb(0 0 0 / 0.28), 0 0 0 1px rgb(255 255 255 / 0.5);
@@ -779,6 +798,36 @@ body.has-scrolled .home-hover-zone {
   animation: skill-motion-three 4.2s ease both;
 }
 
+.tool-card:hover .skill-sequence-five::after,
+.tool-card:focus-visible .skill-sequence-five::after {
+  animation-duration: 4.8s;
+}
+
+.tool-card:hover .skill-sequence-five .skill-logo,
+.tool-card:focus-visible .skill-sequence-five .skill-logo {
+  animation: skill-logo-cycle-five 4.8s ease both;
+}
+
+.tool-card:hover .skill-sequence-five .motion-one,
+.tool-card:focus-visible .skill-sequence-five .motion-one {
+  animation: skill-motion-five-one 4.8s ease both;
+}
+
+.tool-card:hover .skill-sequence-five .motion-two,
+.tool-card:focus-visible .skill-sequence-five .motion-two {
+  animation: skill-motion-five-two 4.8s ease both;
+}
+
+.tool-card:hover .skill-sequence-five .motion-three,
+.tool-card:focus-visible .skill-sequence-five .motion-three {
+  animation: skill-motion-five-three 4.8s ease both;
+}
+
+.tool-card:hover .skill-sequence-five .motion-four,
+.tool-card:focus-visible .skill-sequence-five .motion-four {
+  animation: skill-motion-five-four 4.8s ease both;
+}
+
 @keyframes skill-logo-cycle {
   0%,
   14%,
@@ -791,6 +840,24 @@ body.has-scrolled .home-hover-zone {
 
   24%,
   78% {
+    filter: blur(2px);
+    opacity: 0;
+    transform: scale(0.78) rotate(-6deg);
+  }
+}
+
+@keyframes skill-logo-cycle-five {
+  0%,
+  12%,
+  92%,
+  100% {
+    filter: blur(0);
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  20%,
+  86% {
     filter: blur(2px);
     opacity: 0;
     transform: scale(0.78) rotate(-6deg);
@@ -840,6 +907,70 @@ body.has-scrolled .home-hover-zone {
 
   72%,
   81% {
+    opacity: 1;
+    transform: translate(0, 0) scale(1) rotate(0deg);
+  }
+}
+
+@keyframes skill-motion-five-one {
+  0%,
+  14%,
+  34%,
+  100% {
+    opacity: 0;
+    transform: translate(-0.5rem, 0.45rem) scale(0.72) rotate(-8deg);
+  }
+
+  20%,
+  29% {
+    opacity: 1;
+    transform: translate(0, 0) scale(1) rotate(0deg);
+  }
+}
+
+@keyframes skill-motion-five-two {
+  0%,
+  31%,
+  52%,
+  100% {
+    opacity: 0;
+    transform: translate(0.55rem, 0.18rem) scale(0.72) rotate(8deg);
+  }
+
+  38%,
+  47% {
+    opacity: 1;
+    transform: translate(0, 0) scale(1) rotate(0deg);
+  }
+}
+
+@keyframes skill-motion-five-three {
+  0%,
+  49%,
+  70%,
+  100% {
+    opacity: 0;
+    transform: translateY(-0.45rem) scale(0.72) rotate(-4deg);
+  }
+
+  56%,
+  65% {
+    opacity: 1;
+    transform: translate(0, 0) scale(1) rotate(0deg);
+  }
+}
+
+@keyframes skill-motion-five-four {
+  0%,
+  67%,
+  89%,
+  100% {
+    opacity: 0;
+    transform: translate(0.35rem, -0.45rem) scale(0.72) rotate(6deg);
+  }
+
+  74%,
+  83% {
     opacity: 1;
     transform: translate(0, 0) scale(1) rotate(0deg);
   }
