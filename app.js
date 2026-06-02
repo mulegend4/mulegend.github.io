@@ -8,6 +8,9 @@
   var modal = document.getElementById("project-modal");
   var modalClose = document.getElementById("modal-close");
   var modalBackToTop = document.getElementById("modal-back-to-top");
+  var credentialLink = document.getElementById("cpa-credential-link");
+  var credentialModal = document.getElementById("credential-modal");
+  var credentialClose = document.getElementById("credential-close");
   var projectButtons = Array.prototype.slice.call(document.querySelectorAll(".project-card[data-project]"));
   var modalContents = Array.prototype.slice.call(document.querySelectorAll("[data-modal-content]"));
   var backToTopButton = document.querySelector(".back-to-top-float");
@@ -23,6 +26,7 @@
   var timelineButtons = Array.prototype.slice.call(document.querySelectorAll("[data-experience-target]"));
   var experienceItems = Array.prototype.slice.call(document.querySelectorAll(".experience-item[id]"));
   var activeProjectTrigger = null;
+  var activeCredentialTrigger = null;
   var sections = navLinks
     .map(function (link) {
       var id = link.getAttribute("href");
@@ -304,6 +308,25 @@
     }
   }
 
+  function openCredentialModal(trigger) {
+    if (!credentialModal) return;
+    activeCredentialTrigger = trigger;
+    credentialModal.hidden = false;
+    document.body.classList.add("modal-open");
+    if (credentialClose) {
+      credentialClose.focus();
+    }
+  }
+
+  function closeCredentialModal() {
+    if (!credentialModal) return;
+    credentialModal.hidden = true;
+    document.body.classList.remove("modal-open");
+    if (activeCredentialTrigger) {
+      activeCredentialTrigger.focus();
+    }
+  }
+
   function revealVisibleItems() {
     revealItems.forEach(function (item) {
       var rect = item.getBoundingClientRect();
@@ -361,6 +384,28 @@
       },
       { passive: true }
     );
+  }
+
+  if (credentialLink) {
+    credentialLink.addEventListener("click", function (event) {
+      if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) {
+        return;
+      }
+      event.preventDefault();
+      openCredentialModal(credentialLink);
+    });
+  }
+
+  if (credentialClose) {
+    credentialClose.addEventListener("click", closeCredentialModal);
+  }
+
+  if (credentialModal) {
+    credentialModal.addEventListener("click", function (event) {
+      if (event.target === credentialModal) {
+        closeCredentialModal();
+      }
+    });
   }
 
   if (backToTopButton) {
@@ -456,6 +501,9 @@
   document.addEventListener("keydown", function (event) {
     if (event.key === "Escape" && modal && !modal.hidden) {
       closeProjectModal();
+    }
+    if (event.key === "Escape" && credentialModal && !credentialModal.hidden) {
+      closeCredentialModal();
     }
     if (event.key === "Escape" && document.body.classList.contains("mobile-nav-open")) {
       setMobileNavOpen(false);

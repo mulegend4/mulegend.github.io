@@ -29,7 +29,7 @@
         }
       })();
     </script>
-    <link rel="stylesheet" href="styles.css?v=20260601-1" />
+    <link rel="stylesheet" href="styles.css?v=20260602-2" />
   </head>
   <body>
     <header class="site-header" aria-label="Primary">
@@ -85,7 +85,7 @@
         </div>
 
         <h1 class="hero-title reveal">
-          <span>Arslan Malek</span>
+          <span>Arslan Malek, <a class="credential-link" id="cpa-credential-link" href="https://www.cpaontario.ca/protecting-the-public/directories/member/muhammad-4kojtz" target="_blank" rel="noopener noreferrer" aria-haspopup="dialog">CPA</a></span>
           <strong>Power Apps, Copilot Studio & Enterprise Automation</strong>
         </h1>
 
@@ -1140,6 +1140,37 @@
         </div>
       </section>
     </div>
+
+    <div id="credential-modal" class="credential-backdrop" hidden>
+      <section class="credential-modal" role="dialog" aria-modal="true" aria-labelledby="credential-modal-title">
+        <button class="credential-close" id="credential-close" type="button" aria-label="Close CPA credential details">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18" /></svg>
+        </button>
+        <p class="modal-kicker">Professional accreditation</p>
+        <h2 id="credential-modal-title">Chartered Professional Accountant</h2>
+        <p>
+          CPA is a regulated professional accounting designation in Ontario. Earning it required my Bachelor of Business Administration in Accounting, four additional years of CPA study and practical experience, and extensive professional work requirements.
+        </p>
+        <div class="credential-proof-grid">
+          <article>
+            <strong>Designation</strong>
+            <span>CPA</span>
+          </article>
+          <article>
+            <strong>Member status</strong>
+            <span>Active</span>
+          </article>
+          <article>
+            <strong>Regulator</strong>
+            <span>Chartered Professional Accountants of Ontario</span>
+          </article>
+        </div>
+        <a class="credential-proof-link" href="https://www.cpaontario.ca/protecting-the-public/directories/member/muhammad-4kojtz" target="_blank" rel="noopener noreferrer">
+          View CPA Ontario member directory proof
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" /></svg>
+        </a>
+      </section>
+    </div>
     <button class="modal-back-to-top" id="modal-back-to-top" type="button" aria-label="Back to top of project">
       <span>Project top</span>
       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 15l-6-6-6 6" /></svg>
@@ -1173,6 +1204,6 @@
       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 15l-6-6-6 6" /></svg>
     </button>
 
-    <script src="app.js?v=20260531-17"></script>
+    <script src="app.js?v=20260602-2"></script>
   </body>
 </html>
