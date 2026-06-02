@@ -253,6 +253,25 @@
         </div>
 
         <div class="project-stack">
+          <article class="project-card reveal" data-project="desk-booking" data-skills="power-apps power-automate governance-alm" tabindex="0" role="button" aria-label="Open Desk Booking Tool project details">
+            <div class="project-visual project-visual-image">
+              <img class="project-shot" src="assets/projects/desk-booking/book-a-desk.png" alt="IFC Desk Booking Tool map-based desk selection screen" />
+            </div>
+            <div class="project-copy">
+              <h3>Desk Booking Tool</h3>
+              <ul class="tech-list">
+                <li>Power Apps</li>
+                <li>SharePoint</li>
+                <li>Python Mapping</li>
+                <li>Cost Avoidance</li>
+              </ul>
+              <p>
+                Built a company-wide desk booking app in one month with a complex map-based booking experience, SharePoint backend, and no premium licensing requirement.
+              </p>
+              <p class="project-note">Click to view the booking map, cost avoidance, architecture, and adoption impact.</p>
+            </div>
+          </article>
+
           <article class="project-card reveal" data-project="onboarding" data-skills="power-apps copilot-studio dataverse-dynamics power-automate power-bi governance-alm" tabindex="0" role="button" aria-label="Open AI-Enabled HR Onboarding Platform project details">
             <div class="project-visual project-visual-image">
               <img class="project-shot" src="assets/projects/onboarding/home-screen.png" alt="CM Employee Onboarding App home screen" />
@@ -293,20 +312,20 @@
 
           <article class="project-card reveal" data-project="copilot-intake" data-skills="copilot-studio power-apps power-automate governance-alm" tabindex="0" role="button" aria-label="Open Copilot Studio Intake Agent project details">
             <div class="project-visual project-visual-image">
-              <img class="project-shot" src="assets/projects/copilot-studio-intake-realistic.png" alt="Realistic Copilot Studio intake agent builder visual" />
+              <img class="project-shot" src="assets/projects/intake-request/guided-questions.png" alt="Power Platform Intake Portal guided request selection screen" />
             </div>
             <div class="project-copy">
               <h3>Copilot Studio Intake Agent</h3>
               <ul class="tech-list">
                 <li>Copilot Studio</li>
+                <li>Power Apps</li>
                 <li>Power Automate</li>
-                <li>Request Triage</li>
                 <li>ServiceNow Process</li>
               </ul>
               <p>
-                Replaced a manual intake process with an agent that asks targeted business-analysis questions, summarizes requests, and gives the delivery team clearer next steps.
+                Paired a Power App intake portal with guided questions and Copilot-supported triage to collect cleaner requests, summarize needs, and replace high-maintenance ServiceNow intake updates.
               </p>
-              <p class="project-note">Click to view impact estimates, intake autonomy, and the screenshot note.</p>
+              <p class="project-note">Click to view the intake portal, guided request flow, impact estimates, and review screen.</p>
             </div>
           </article>
 
@@ -538,6 +557,99 @@
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18" /></svg>
         </button>
 
+        <div class="project-modal-content" data-modal-content="desk-booking" hidden>
+        <div class="modal-hero">
+          <div class="modal-media-panel">
+            <img src="assets/projects/desk-booking/book-a-desk.png" alt="Desk Booking Tool interactive map-based booking screen" />
+            <div class="modal-skill-icons" aria-label="Skills used">
+              <span class="modal-skill-icon"><img src="assets/icons/power-platform/Power Platform/PowerApps_scalable.svg" alt="" /><span>Power Apps</span></span>
+              <span class="modal-skill-icon"><img src="assets/icons/power-platform/Power Platform/PowerAutomate_scalable.svg" alt="" /><span>Automate</span></span>
+              <span class="modal-skill-icon"><img src="assets/icons/power-platform/Power Platform/PowerPlatform_scalable.svg" alt="" /><span>Governance</span></span>
+            </div>
+          </div>
+          <div>
+            <p class="modal-kicker">Power Apps case study</p>
+            <h2 id="project-modal-title-desk-booking">Desk Booking Tool</h2>
+            <p>
+              A company-wide desk booking Power App built from the ground up in one month to replace a costly ServiceNow booking system. The app used SharePoint as the backend, avoided premium licensing, and included a complex interactive floor-map experience powered by Python-generated coordinate mapping.
+            </p>
+          </div>
+        </div>
+
+        <div class="modal-section">
+          <h3>Business impact</h3>
+          <div class="modal-highlight-grid">
+            <article>
+              <strong>$500K annual platform cost avoided</strong>
+              <span>Helped replace a ServiceNow booking system that cost about $500,000 per year before additional maintenance labor.</span>
+            </article>
+            <article>
+              <strong>Built in one month</strong>
+              <span>Delivered a production-ready booking tool quickly enough to meet the business need without waiting on a long vendor implementation.</span>
+            </article>
+            <article>
+              <strong>No premium licensing</strong>
+              <span>Used SharePoint as the backend so the solution stayed covered under regular Microsoft licensing instead of requiring premium Power Platform licenses.</span>
+            </article>
+            <article>
+              <strong>Company-wide adoption</strong>
+              <span>The tool is being used across the company and continues to evolve with ongoing updates and enhancements.</span>
+            </article>
+          </div>
+        </div>
+
+        <div class="modal-section">
+          <h3>What made it complex</h3>
+          <p>
+            The hardest part was the interactive map. Desks needed to appear in the correct place on real floor plans, show availability, support filtering by location, area, equipment, and booking date, and still feel simple for employees. I used Python scripting to calculate and manage coordinate placement so the Power App could translate floor-plan locations into clickable desk-booking targets.
+          </p>
+        </div>
+
+        <div class="modal-gallery">
+          <article class="modal-shot wide">
+            <img src="assets/projects/desk-booking/book-a-desk.png" alt="Desk booking map screen showing available and unavailable desks on a floor plan" />
+            <div>
+              <h3>Interactive booking map</h3>
+              <p>
+                Users could choose a location, floor, date, area, and equipment, then book from a visual floor plan. The legend made availability clear by distinguishing blocked, assigned, restricted, booked, selected, and available desks.
+              </p>
+            </div>
+          </article>
+
+          <article class="modal-shot">
+            <img src="assets/projects/desk-booking/home-page.png" alt="Desk Booking Tool home page with book, dashboard, and search actions" />
+            <div>
+              <h3>Home page</h3>
+              <p>
+                The home page gave employees three clear actions: book a space, view their bookings, or search for a colleague. The goal was a simple first screen that made booking fast for regular users.
+              </p>
+            </div>
+          </article>
+
+          <article class="modal-shot">
+            <img src="assets/projects/desk-booking/view-bookings.png" alt="Desk Booking Tool bookings dashboard showing confirmed reservations" />
+            <div>
+              <h3>My bookings</h3>
+              <p>
+                Employees could review confirmed, cancelled, and completed bookings from a self-service dashboard, reducing support requests and giving users visibility into upcoming reservations.
+              </p>
+            </div>
+          </article>
+        </div>
+
+        <div class="modal-section">
+          <h3>Skills highlighted</h3>
+          <ul class="skill-proof-list">
+            <li><strong>Power Apps:</strong> designed and built the booking interface, map interaction, search experience, dashboard, and user navigation.</li>
+            <li><strong>SharePoint architecture:</strong> used SharePoint lists as the backend to avoid premium licensing while supporting booking records and availability logic.</li>
+            <li><strong>Python scripting:</strong> generated and managed desk coordinate data so floor-plan desks could be represented as clickable booking targets.</li>
+            <li><strong>Power Automate:</strong> supported booking workflow needs, operational handoffs, and update paths behind the app experience.</li>
+            <li><strong>Cost optimization:</strong> replaced an expensive ServiceNow booking path with an internal Power Platform solution estimated to avoid about $500,000 per year plus maintenance labor.</li>
+            <li><strong>Enterprise delivery:</strong> delivered the first production version in one month and continued improving it for company-wide usage.</li>
+          </ul>
+        </div>
+        </div>
+
         <div class="project-modal-content" data-modal-content="onboarding">
         <div class="modal-hero">
           <div class="modal-media-panel">
@@ -732,7 +844,7 @@
         <div class="project-modal-content" data-modal-content="copilot-intake" hidden>
         <div class="modal-hero">
           <div class="modal-media-panel">
-            <img src="assets/projects/copilot-studio-intake-realistic.png" alt="Realistic Copilot Studio intake agent builder visual" />
+            <img src="assets/projects/intake-request/welcome-screen.png" alt="Power Platform Intake welcome screen" />
             <div class="modal-skill-icons" aria-label="Skills used">
               <span class="modal-skill-icon"><img src="assets/icons/power-platform/CopilotStudio_scalable.svg" alt="" /><span>Copilot Studio</span></span>
               <span class="modal-skill-icon"><img src="assets/icons/power-platform/Power Platform/PowerApps_scalable.svg" alt="" /><span>Power Apps</span></span>
@@ -744,7 +856,7 @@
             <p class="modal-kicker">Copilot Studio case study</p>
             <h2 id="project-modal-title-copilot">Copilot Studio Intake Agent</h2>
             <p>
-              A guided request intake experience that replaced manual review and a high-maintenance ServiceNow form with a Copilot Studio agent and Power Platform-owned intake flow. The agent collects better context, summarizes the request, and gives the delivery team cleaner next steps before work begins.
+              A guided request intake experience that paired a Power App front end with Copilot-supported request triage. Users answered structured questions before submission, giving the delivery team cleaner context, better summaries, and clearer next steps without depending on high-maintenance ServiceNow form updates.
             </p>
           </div>
         </div>
@@ -769,25 +881,53 @@
               <span>The team could update questions, branching logic, and form behavior directly in Power Platform instead of waiting on external ServiceNow configuration work.</span>
             </article>
           </div>
-          <div class="modal-callout">
-            <strong>Screenshot reminder</strong>
-            Add the sanitized Intake Power App screenshot here once available, so this case study can show the exact front-end intake experience beside the Copilot agent.
-          </div>
         </div>
 
         <div class="modal-section">
           <h3>What the agent does</h3>
           <p>
-            The agent asks targeted business-analysis questions, captures the reason for the request, clarifies urgency and impacted users, summarizes the ask, and prepares the delivery team with enough context to triage faster. The Power App intake layer made the front-end request experience easier to customize, while Copilot Studio handled guided conversation, summarization, and routing support.
+            The intake experience guides users through the right request path, asks business-analysis questions in plain language, captures department and delivery details, clarifies urgency and impacted users, and prepares the delivery team with enough context to triage faster. The Power App intake layer made the front-end request experience easier to customize, while Copilot Studio handled guided conversation, request summarization, and routing support.
           </p>
+        </div>
+
+        <div class="modal-gallery">
+          <article class="modal-shot wide">
+            <img src="assets/projects/intake-request/guided-questions.png" alt="Power Platform Intake Portal guided request category screen" />
+            <div>
+              <h3>Guided request path</h3>
+              <p>
+                Users started by choosing what they needed: a new automation request, business application request, solution assistance, or production deployment. This kept intake structured and helped route users into the right set of questions.
+              </p>
+            </div>
+          </article>
+
+          <article class="modal-shot">
+            <img src="assets/projects/intake-request/welcome-screen.png" alt="Power Platform Intake welcome screen with Get Started button" />
+            <div>
+              <h3>Simple first screen</h3>
+              <p>
+                The welcome screen made the intake portal feel approachable for business users while clearly positioning it as the front door for Power Platform service requests.
+              </p>
+            </div>
+          </article>
+
+          <article class="modal-shot">
+            <img src="assets/projects/intake-request/review-submit.png" alt="Power Platform Intake review screen before submitting a request" />
+            <div>
+              <h3>Review before submit</h3>
+              <p>
+                Before submission, users reviewed their request details in one place. This reduced incomplete requests, gave the delivery team cleaner intake data, and supported better Copilot-generated summaries.
+              </p>
+            </div>
+          </article>
         </div>
 
         <div class="modal-section">
           <h3>Skills highlighted</h3>
           <ul class="skill-proof-list">
-            <li><strong>Copilot Studio:</strong> designed the conversational intake flow, request clarification prompts, and summary behavior.</li>
-            <li><strong>Power Apps:</strong> replaced the rigid ServiceNow form with a team-owned intake app that could evolve faster.</li>
-            <li><strong>Power Automate:</strong> supported request routing, notifications, and downstream handoffs.</li>
+            <li><strong>Copilot Studio:</strong> designed the conversational intake support, request clarification prompts, and summary behavior.</li>
+            <li><strong>Power Apps:</strong> built the guided intake portal, request category flow, review screen, and team-owned front-end experience.</li>
+            <li><strong>Power Automate:</strong> supported request routing, notifications, downstream handoffs, and submission processing.</li>
             <li><strong>Business analysis:</strong> translated intake review pain points into measurable savings and a cleaner request process.</li>
             <li><strong>Governance:</strong> kept the intake experience structured, maintainable, and easier to update without vendor dependency.</li>
           </ul>
