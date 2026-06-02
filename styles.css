@@ -2290,6 +2290,58 @@ body.modal-project-scrolled .modal-back-to-top {
   margin: 0;
 }
 
+.project-company-badge {
+  align-items: center;
+  background: rgb(255 255 255 / 0.065);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  display: inline-flex;
+  gap: 0.65rem;
+  margin-top: 1rem;
+  max-width: 100%;
+  padding: 0.42rem 0.78rem 0.42rem 0.44rem;
+  width: fit-content;
+}
+
+.project-company-logo {
+  align-items: center;
+  background: #fff;
+  border: 1px solid rgb(255 255 255 / 0.22);
+  border-radius: 999px;
+  display: inline-flex;
+  flex: 0 0 auto;
+  height: 2.35rem;
+  justify-content: center;
+  overflow: hidden;
+  padding: 0.26rem;
+  width: 2.35rem;
+}
+
+.project-company-logo img {
+  display: block;
+  height: 100%;
+  object-fit: contain;
+  width: 100%;
+}
+
+.project-company-badge small {
+  color: var(--muted);
+  display: block;
+  font-size: 0.62rem;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  line-height: 1.1;
+  text-transform: uppercase;
+}
+
+.project-company-badge strong {
+  color: var(--text);
+  display: block;
+  font-size: 0.86rem;
+  font-weight: 900;
+  line-height: 1.15;
+}
+
 .modal-section {
   border-top: 1px solid var(--border);
   padding: 1.6rem;
@@ -2345,6 +2397,13 @@ body.modal-project-scrolled .modal-back-to-top {
   height: auto;
   min-height: 12rem;
   object-fit: cover;
+  width: 100%;
+}
+
+.modal-demo-video {
+  background: #050506;
+  display: block;
+  min-height: 13rem;
   width: 100%;
 }
 
@@ -2551,9 +2610,14 @@ html[data-theme="light"] .experience-item,
 html[data-theme="light"] .modal-shot,
 html[data-theme="light"] .modal-demo,
 html[data-theme="light"] .modal-highlight-grid article,
-html[data-theme="light"] .modal-skill-icon {
+html[data-theme="light"] .modal-skill-icon,
+html[data-theme="light"] .project-company-badge {
   background: linear-gradient(180deg, rgb(255 255 255 / 0.98), rgb(255 255 255 / 0.78));
   box-shadow: 0 18px 48px rgb(15 23 42 / 0.08);
+}
+
+html[data-theme="light"] .project-company-logo {
+  border-color: rgb(15 23 42 / 0.1);
 }
 
 html[data-theme="light"] .tool-card:hover,
