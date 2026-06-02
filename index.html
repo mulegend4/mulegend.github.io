@@ -29,7 +29,7 @@
         }
       })();
     </script>
-    <link rel="stylesheet" href="styles.css?v=20260602-2" />
+    <link rel="stylesheet" href="styles.css?v=20260602-3" />
   </head>
   <body>
     <header class="site-header" aria-label="Primary">
@@ -844,7 +844,7 @@
         <div class="project-modal-content" data-modal-content="copilot-intake" hidden>
         <div class="modal-hero">
           <div class="modal-media-panel">
-            <img src="assets/projects/intake-request/welcome-screen.png" alt="Power Platform Intake welcome screen" />
+            <img src="assets/projects/intake-request/guided-questions.png" alt="Power Platform Intake Portal guided request path screen" />
             <div class="modal-skill-icons" aria-label="Skills used">
               <span class="modal-skill-icon"><img src="assets/icons/power-platform/CopilotStudio_scalable.svg" alt="" /><span>Copilot Studio</span></span>
               <span class="modal-skill-icon"><img src="assets/icons/power-platform/Power Platform/PowerApps_scalable.svg" alt="" /><span>Power Apps</span></span>
@@ -856,7 +856,7 @@
             <p class="modal-kicker">Copilot Studio case study</p>
             <h2 id="project-modal-title-copilot">Copilot Studio Intake Agent</h2>
             <p>
-              A guided request intake experience that paired a Power App front end with Copilot-supported request triage. Users answered structured questions before submission, giving the delivery team cleaner context, better summaries, and clearer next steps without depending on high-maintenance ServiceNow form updates.
+              A guided request intake experience that paired a polished, company-standard Power App front end with Copilot-supported triage. The app used clean branding, clear service paths, and structured business questions so requesters could submit better information while the delivery team received cleaner summaries, routing context, and next steps without depending on high-maintenance ServiceNow form updates.
             </p>
           </div>
         </div>
@@ -884,10 +884,28 @@
         </div>
 
         <div class="modal-section">
-          <h3>What the agent does</h3>
+          <h3>Copilot Studio agent layer</h3>
           <p>
-            The intake experience guides users through the right request path, asks business-analysis questions in plain language, captures department and delivery details, clarifies urgency and impacted users, and prepares the delivery team with enough context to triage faster. The Power App intake layer made the front-end request experience easier to customize, while Copilot Studio handled guided conversation, request summarization, and routing support.
+            The Copilot Studio agent analyzes each request after the guided intake path, identifies the request type, summarizes the business need, estimates delivery effort, recommends next steps, and helps assign the work to the appropriate support or delivery team.
           </p>
+          <div class="modal-highlight-grid agent-triage-grid">
+            <article>
+              <strong>Analyzes request context</strong>
+              <span>Reviews the selected path, answers, impacted users, urgency, and business objective to create a cleaner triage summary.</span>
+            </article>
+            <article>
+              <strong>Routes to the right team</strong>
+              <span>Supports assignment decisions across automation, app build, deployment, support, and governance request types.</span>
+            </article>
+            <article>
+              <strong>Estimates effort</strong>
+              <span>Frames likely effort, dependencies, and complexity so the team can prioritize work before manual review begins.</span>
+            </article>
+            <article>
+              <strong>Recommends next steps</strong>
+              <span>Prepares action guidance for intake reviewers, including follow-up questions and the practical next move for the requester.</span>
+            </article>
+          </div>
         </div>
 
         <div class="modal-gallery">
@@ -904,9 +922,9 @@
           <article class="modal-shot">
             <img src="assets/projects/intake-request/welcome-screen.png" alt="Power Platform Intake welcome screen with Get Started button" />
             <div>
-              <h3>Simple first screen</h3>
+              <h3>Company-standard branded front door</h3>
               <p>
-                The welcome screen made the intake portal feel approachable for business users while clearly positioning it as the front door for Power Platform service requests.
+                The welcome experience was designed to feel like an internal enterprise product, with clean visual hierarchy, familiar branding, and a clear start point for business users submitting Power Platform service requests.
               </p>
             </div>
           </article>
@@ -1146,29 +1164,83 @@
         <button class="credential-close" id="credential-close" type="button" aria-label="Close CPA credential details">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18" /></svg>
         </button>
-        <p class="modal-kicker">Professional accreditation</p>
-        <h2 id="credential-modal-title">Chartered Professional Accountant</h2>
-        <p>
-          CPA is a regulated professional accounting designation in Ontario. Earning it required my Bachelor of Business Administration in Accounting, four additional years of CPA study and practical experience, and extensive professional work requirements.
-        </p>
-        <div class="credential-proof-grid">
-          <article>
-            <strong>Designation</strong>
-            <span>CPA</span>
-          </article>
-          <article>
-            <strong>Member status</strong>
-            <span>Active</span>
-          </article>
-          <article>
-            <strong>Regulator</strong>
-            <span>Chartered Professional Accountants of Ontario</span>
-          </article>
+        <div class="credential-shell">
+          <div class="credential-visual" aria-hidden="true">
+            <div class="credential-badge">
+              <span class="credential-badge-mark">CPA</span>
+              <span class="credential-badge-label">Ontario</span>
+            </div>
+            <div class="credential-ribbon">Regulated designation</div>
+            <div class="credential-mini-cards">
+              <span>BBA Accounting</span>
+              <span>4 additional years</span>
+              <span>Professional experience</span>
+            </div>
+          </div>
+          <div class="credential-copy">
+            <p class="modal-kicker">Professional accreditation</p>
+            <h2 id="credential-modal-title">Chartered Professional Accountant</h2>
+            <p class="credential-lead">
+              CPA is a prestigious, regulated professional accounting designation in Ontario. Earning it required my Bachelor of Business Administration in Accounting, four additional years of CPA study and practical experience, and extensive verified work experience requirements.
+            </p>
+            <div class="credential-icon-grid">
+              <article>
+                <span class="credential-icon">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 8.5 12 4l9 4.5-9 4.5-9-4.5Z" /><path d="M6.5 10.3v4.8c0 1.6 2.8 3 5.5 3s5.5-1.4 5.5-3v-4.8" /></svg>
+                </span>
+                <div>
+                  <strong>Accounting foundation</strong>
+                  <span>Bachelor of Business Administration in Accounting.</span>
+                </div>
+              </article>
+              <article>
+                <span class="credential-icon">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 7V5.8C8 4.8 8.8 4 9.8 4h4.4c1 0 1.8.8 1.8 1.8V7" /><path d="M4 8.5h16v11H4v-11Z" /><path d="M9 12h6" /></svg>
+                </span>
+                <div>
+                  <strong>Practical experience</strong>
+                  <span>Years of professional work experience and CPA requirements.</span>
+                </div>
+              </article>
+              <article>
+                <span class="credential-icon">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 19 6v5.2c0 4.4-2.8 8.3-7 9.8-4.2-1.5-7-5.4-7-9.8V6l7-3Z" /><path d="m9 12 2 2 4-5" /></svg>
+                </span>
+                <div>
+                  <strong>Regulated profession</strong>
+                  <span>Credential governed by CPA Ontario for public protection.</span>
+                </div>
+              </article>
+              <article>
+                <span class="credential-icon">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3.5h9l3 3V20H6V3.5Z" /><path d="M14.5 3.5V7H18" /><path d="M8.5 13h7" /><path d="M8.5 16h5" /></svg>
+                </span>
+                <div>
+                  <strong>Public proof</strong>
+                  <span>Membership can be verified in the CPA Ontario directory.</span>
+                </div>
+              </article>
+            </div>
+            <div class="credential-proof-grid">
+              <article>
+                <strong>Designation</strong>
+                <span>CPA</span>
+              </article>
+              <article>
+                <strong>Member status</strong>
+                <span>Active</span>
+              </article>
+              <article>
+                <strong>Regulator</strong>
+                <span>CPA Ontario</span>
+              </article>
+            </div>
+            <a class="credential-proof-link" href="https://www.cpaontario.ca/protecting-the-public/directories/member/muhammad-4kojtz" target="_blank" rel="noopener noreferrer">
+              Verify my CPA Ontario membership
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" /></svg>
+            </a>
+          </div>
         </div>
-        <a class="credential-proof-link" href="https://www.cpaontario.ca/protecting-the-public/directories/member/muhammad-4kojtz" target="_blank" rel="noopener noreferrer">
-          View CPA Ontario member directory proof
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" /></svg>
-        </a>
       </section>
     </div>
     <button class="modal-back-to-top" id="modal-back-to-top" type="button" aria-label="Back to top of project">
@@ -1204,6 +1276,6 @@
       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 15l-6-6-6 6" /></svg>
     </button>
 
-    <script src="app.js?v=20260602-2"></script>
+    <script src="app.js?v=20260602-3"></script>
   </body>
 </html>
