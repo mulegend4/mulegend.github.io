@@ -1000,7 +1000,7 @@ body.has-scrolled .home-hover-zone {
 .project-expand-toggle svg {
   background: linear-gradient(135deg, var(--teal), #955cff);
   border-radius: 999px;
-  color: #041010;
+  color: #fff;
   fill: none;
   height: 2rem;
   padding: 0.48rem;
