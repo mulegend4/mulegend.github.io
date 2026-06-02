@@ -2,10 +2,12 @@
   var navLinks = Array.prototype.slice.call(document.querySelectorAll(".nav-pill, .mobile-nav-link"));
   var skillButtons = Array.prototype.slice.call(document.querySelectorAll("[data-skill]"));
   var projectCards = Array.prototype.slice.call(document.querySelectorAll(".project-card[data-skills]"));
+  var projectStack = document.querySelector(".project-stack");
   var companyFilterButtons = Array.prototype.slice.call(document.querySelectorAll("[data-company-filter]"));
   var filterBanner = document.getElementById("project-filter-banner");
   var filterLabel = document.getElementById("project-filter-label");
   var clearFilterButton = document.getElementById("clear-project-filter");
+  var projectToggleButton = document.getElementById("project-toggle-more");
   var modal = document.getElementById("project-modal");
   var modalClose = document.getElementById("modal-close");
   var modalBackToTop = document.getElementById("modal-back-to-top");
@@ -37,6 +39,25 @@
     })
     .filter(Boolean);
   var revealItems = Array.prototype.slice.call(document.querySelectorAll(".reveal"));
+  var projectListExpanded = false;
+
+  function getProjectOrder(card) {
+    var order = parseInt(card.getAttribute("data-project-order") || "999", 10);
+    return Number.isNaN(order) ? 999 : order;
+  }
+
+  projectCards.sort(function (a, b) {
+    return getProjectOrder(a) - getProjectOrder(b);
+  });
+
+  if (projectStack) {
+    projectCards.forEach(function (card) {
+      projectStack.appendChild(card);
+    });
+    projectButtons = projectCards.filter(function (card) {
+      return card.hasAttribute("data-project");
+    });
+  }
 
   function updateExperienceTotal() {
     if (!experienceTotal || !experienceTotalYears) return;
@@ -251,6 +272,7 @@
       filterBanner.hidden = false;
     }
 
+    updateProjectDisplayLimit();
     document.getElementById("projects").scrollIntoView({ behavior: "smooth", block: "start" });
   }
 
@@ -276,6 +298,7 @@
       filterBanner.hidden = false;
     }
 
+    updateProjectDisplayLimit();
     document.getElementById("projects").scrollIntoView({ behavior: "smooth", block: "start" });
   }
 
@@ -292,6 +315,39 @@
     if (filterBanner) {
       filterBanner.hidden = true;
     }
+    projectListExpanded = false;
+    updateProjectDisplayLimit();
+  }
+
+  function hasActiveProjectFilter() {
+    return filterBanner ? !filterBanner.hidden : false;
+  }
+
+  function getProjectDisplayLimit() {
+    return window.innerWidth <= 920 ? 4 : 6;
+  }
+
+  function updateProjectDisplayLimit() {
+    var limit = getProjectDisplayLimit();
+    var filterActive = hasActiveProjectFilter();
+    var hiddenCount = Math.max(0, projectCards.length - limit);
+    var shouldLimit = !projectListExpanded && !filterActive && hiddenCount > 0;
+
+    projectCards.forEach(function (card, index) {
+      card.classList.toggle("project-limited-hidden", shouldLimit && index >= limit);
+    });
+
+    if (projectToggleButton) {
+      projectToggleButton.hidden = filterActive || hiddenCount <= 0;
+      projectToggleButton.setAttribute("aria-expanded", projectListExpanded ? "true" : "false");
+
+      var label = projectToggleButton.querySelector("span");
+      if (label) {
+        label.textContent = projectListExpanded ? "Show fewer projects" : "Show " + hiddenCount + " more projects";
+      }
+    }
+
+    window.requestAnimationFrame(revealVisibleItems);
   }
 
   function setProjectModalContent(projectKey) {
@@ -404,6 +460,17 @@
 
   if (clearFilterButton) {
     clearFilterButton.addEventListener("click", clearSkillFilter);
+  }
+
+  if (projectToggleButton) {
+    projectToggleButton.addEventListener("click", function () {
+      projectListExpanded = !projectListExpanded;
+      updateProjectDisplayLimit();
+
+      if (!projectListExpanded) {
+        document.getElementById("projects").scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    });
   }
 
   projectButtons.forEach(function (button) {
@@ -641,9 +708,11 @@
   );
 
   updateExperienceTotal();
+  updateProjectDisplayLimit();
   updateActiveFromScroll();
   updateScrollChrome();
   window.addEventListener("resize", function () {
+    updateProjectDisplayLimit();
     updateScrollChrome();
     if (window.innerWidth > 920) {
       setMobileNavOpen(false);
