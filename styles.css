@@ -1052,6 +1052,10 @@ body.has-scrolled .home-hover-zone {
   order: 10;
 }
 
+.project-card[data-project-order="11"] {
+  order: 11;
+}
+
 .filter-banner {
   align-items: center;
   background: linear-gradient(90deg, rgb(53 208 196 / 0.16), rgb(118 168 255 / 0.12));
@@ -1175,6 +1179,12 @@ body.has-scrolled .home-hover-zone {
   --project-accent-a: rgb(149 92 255 / 0.34);
   --project-accent-b: rgb(53 208 196 / 0.24);
   --project-accent-c: rgb(118 168 255 / 0.18);
+}
+
+.project-card[data-project="health-safety-incident"] {
+  --project-accent-a: rgb(220 38 38 / 0.26);
+  --project-accent-b: rgb(15 143 135 / 0.24);
+  --project-accent-c: rgb(118 168 255 / 0.15);
 }
 
 .project-card[data-project="onboarding"],
